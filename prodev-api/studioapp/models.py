@@ -123,8 +123,8 @@ class Review(models.Model):
 
 #Creatives booking Studio time
 class Booking(models.Model):
-    creative_name = models.ForeignKey(CreativeUser,on_delete=models.CASCADE)
-    studio_name = models.ForeignKey(StudioProfile,on_delete=models.CASCADE)
+    creative_id = models.ForeignKey(CreativeUser,on_delete=models.CASCADE)
+    studio_id = models.ForeignKey(StudioProfile,on_delete=models.CASCADE)
     email =  models.EmailField()
     session_duration = models.DurationField()
     session_time = models.DateTimeField()
@@ -136,5 +136,5 @@ class Booking(models.Model):
         self.delete()
 
     def __str__(self):
-        return self.creative_name.username
+        return self.creative_id.username
 
