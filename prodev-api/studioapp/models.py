@@ -110,7 +110,7 @@ class CreativeProfile(models.Model):
 #Review of Studios
 class Review(models.Model):
     message = models.CharField(max_length=100)
-    user_id = models.ForeignKey(CreativeUser,on_delete=models.CASCADE)
+    creative_id = models.ForeignKey(CreativeUser,on_delete=models.CASCADE)
 
     def save_review(self):
         self.save()
@@ -119,7 +119,7 @@ class Review(models.Model):
         self.delete()
 
     def __str__(self):
-        return self.user_id.username
+        return self.creative_id.username
 
 #Creatives booking Studio time
 class Booking(models.Model):
