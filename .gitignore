@@ -1,4 +1,6 @@
 prodev-api/virtual/
 
 
+
 prodev-client/node_modules
+.env
