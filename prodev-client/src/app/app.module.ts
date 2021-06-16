@@ -6,6 +6,10 @@ import { ClientsignupComponent } from './clientsignup/clientsignup.component';
 import { ClientloginComponent } from './clientlogin/clientlogin.component';
 import { StudiosignupComponent } from './studiosignup/studiosignup.component';
 import { StudiologinComponent } from './studiologin/studiologin.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { Routes ,RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +17,15 @@ import { StudiologinComponent } from './studiologin/studiologin.component';
     ClientsignupComponent,
     ClientloginComponent,
     StudiosignupComponent,
-    StudiologinComponent
+    StudiologinComponent,
+    NavbarComponent,
+    LandingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule,
+    FormsModule       
   ],
   providers: [],
   bootstrap: [AppComponent]
