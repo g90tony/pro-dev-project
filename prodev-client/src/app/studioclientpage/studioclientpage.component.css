@@ -32,8 +32,7 @@ h3{
   background-color: brown;
 }
 .split2 {
-
-  background-image: url(../../assets/dataz.jpeg);
+  /* background-image: url('../../assets/dataz.jpeg'); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 4%;
@@ -52,7 +51,7 @@ h3{
 
 .right {
   right: 0;
-  background-image: url(/studioclientpage/assets/image220.jpg);
+  background-image: url('../../assets/background-images/dataz.jpeg');
 }
 
 .centered1{

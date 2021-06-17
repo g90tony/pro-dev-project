@@ -10,8 +10,8 @@ import { StudioclientpageComponent } from './studioclientpage/studioclientpage.c
 @NgModule({
   declarations: [
     AppComponent,
-    // StudiosignuppageComponent,
-    // StudioclientpageComponent,
+    StudiosignuppageComponent,
+    StudioclientpageComponent,
   ],
   imports: [
     BrowserModule,
