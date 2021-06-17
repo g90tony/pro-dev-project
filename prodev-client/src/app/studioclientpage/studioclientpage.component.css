@@ -33,7 +33,7 @@ h3{
 }
 .split2 {
 
-  background-image: image('/assets/image220.jpg');
+  background-image: url(../../assets/dataz.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 4%;

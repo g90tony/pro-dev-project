@@ -1,7 +1,3 @@
-body {
-  background-color: white;
-}
-
 .split1 {
   height: 100%;
   width: 50%;
@@ -27,7 +23,7 @@ h4{
   background-color: brown;
 }
 .split2 {
-  background-image: image('/studiosignuppage/assets/radaz.jpg');
+  background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWMlMjBzdHVkaW98ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 4%;
