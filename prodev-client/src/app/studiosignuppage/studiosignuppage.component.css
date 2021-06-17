@@ -1,0 +1,63 @@
+body {
+  background-color: white;
+}
+
+.split1 {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+input{
+  height: 30px;
+}
+.brown,label{
+  color: #AF855A;
+   border-radius: 30px;
+}
+h4{
+  color: #5F9EA0;
+  font-size: 25px;
+  font-weight: bolder;
+}
+.btn{
+  background-color: brown;
+}
+.split2 {
+  background-image: image('/studiosignuppage/assets/radaz.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4%;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.left {
+  left: 0;
+  background-color: white;
+}
+
+.right {
+  right: 0;
+  background-image: url('/studiosignuppage/assets/image220.jpg');
+}
+
+.centered1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* text-align: center; */
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
