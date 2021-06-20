@@ -7,7 +7,7 @@ import { SearchComponent } from './app/search/search.component';
 @Injectable({
   providedIn: 'root'
 })
-export class GitServiceService {
+export class StudioService {
 
   studio: Studio[] = [];
   _URL = '';
