@@ -15,7 +15,7 @@ export class ClientsService {
 
   constructor(private http: HttpClient) { }
 
-  searchStudio(searchTerm: string) {
+  searchClients(searchTerm: string) {
     interface ApiResponse {
       
     }
