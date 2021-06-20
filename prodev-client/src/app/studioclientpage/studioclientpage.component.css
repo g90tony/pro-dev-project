@@ -66,3 +66,11 @@ h3{
   width: 150px;
   border-radius: 50%;
 }
+
+#button{
+  background-color: #AF855A;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 6px;
+  border-radius: 10px;
+ }
