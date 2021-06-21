@@ -1,6 +1,8 @@
 from django.urls import path
 from studioapp import views
 
+##the urls below were created to test jwt-auth on different APIView requests
+##they are not meant to be the final (app)urlpatterns for the project
 urlpatterns = [
     #path('hello/', views.HelloView.as_view(), name='hello'),
     path('api/manyusers/', views.ManyCreativeUsers.as_view(), name='hello'),
