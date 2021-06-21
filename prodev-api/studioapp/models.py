@@ -56,7 +56,7 @@ class StudioProfile(models.Model):
     studio_id = models.ForeignKey(StudioUser,on_delete=models.CASCADE)
     description = models.CharField(max_length=100)
     location = models.CharField(max_length=30)
-    rates = models.DecimalField(decimal_places=2)
+    rates = models.DecimalField(decimal_places=2, max_digits=8)
     service_provided = models.ForeignKey(Services,on_delete=models.CASCADE)
     advert_photos = models.ForeignKey(AdvertPost,on_delete=models.CASCADE)
     logo = models.ImageField(upload_to="images")

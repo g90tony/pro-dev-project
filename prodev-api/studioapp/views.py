@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from rest_framework import serializers, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+
 
 from .models import AdvertPost, Booking, CreativeProfile, CreativeUser, Review, Services, StudioProfile, StudioUser
 from .serializers import AdvertPostSerializer, BookingSerializer, CreativeProfileSerializer, CreativeUserSerializer, ReviewSerializer,  ServicesSerializer, StudioProfileSerializer, StudioUserSerializer, 
@@ -17,6 +19,7 @@ ROUTE: /api/creative/user
 
 '''
 class ManyCreativeUsers(APIView):
+    permission_classes = (IsAuthenticated)
     def get(self, request, format=None ):
         all_creative_users = User.objects.all()
         
@@ -44,7 +47,7 @@ ROUTE: /api/creative/user/<int:user_id>
 
 '''
 class SingleCreativeUsers(APIView):
-    
+    permission_classes = (IsAuthenticated)
     def get_user_object(self, pk):
         try:
             return CreativeUser.objects.get(id=pk)
@@ -106,7 +109,7 @@ ROUTE: /api/creative/profile/<int:user_id>
 
 '''
 class CreativeProfile(APIView):
-
+    permission_classes = (IsAuthenticated)
     def get_profile_obj(user_id):
         
         try: 
@@ -187,7 +190,7 @@ ROUTE: /api/creative/book-session/
 '''
 
 class CreateBooking(APIView):
-    
+    permission_classes = (IsAuthenticated)
     def post(self, request, format=None):
        
        serializer = BookingSerializer(data=request.data)
@@ -210,6 +213,7 @@ ROUTE: /api/creative/book-session/
 
 '''
 class CreateReview(APIView):
+    permission_classes = (IsAuthenticated)
     def post(Self, request, format=None):
         
         serializer = ReviewSerializer(data=request.data)
