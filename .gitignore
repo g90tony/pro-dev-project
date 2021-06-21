@@ -3,4 +3,6 @@ prodev-api/virtual/
 
 prodev-client/node_modules
 .env
-.vscode/settings.json
+prodev-client/build/
+.vscode/
+prodev-client/.firebase/
