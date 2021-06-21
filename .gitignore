@@ -2,5 +2,5 @@ prodev-api/virtual/
 
 
 prodev-client/node_modules
-prodev-api/core/.env/
+prodev-api/.env/
 
