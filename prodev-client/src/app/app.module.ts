@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { StudioclientpageComponent } from './studioclientpage/studioclientpage.component';
 import { ProfileeditpageComponent } from './profileeditpage/profileeditpage.component';
+import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProfileeditpageComponent } from './profileeditpage/profileeditpage.comp
     StudiosignuppageComponent,
     StudioclientpageComponent,
     ProfileeditpageComponent,
+    ClientviewprofileComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,12 +26,16 @@ import { ProfileeditpageComponent } from './profileeditpage/profileeditpage.comp
         component: StudiosignuppageComponent
       },
       {
-        path: "profile",
+        path: "create_profile",
         component: StudioclientpageComponent
       },
       {
         path: "edit",
         component: ProfileeditpageComponent
+      },
+      {
+        path: "view_profile",
+        component: ClientviewprofileComponent
       },
 
     ])
