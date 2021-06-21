@@ -4,3 +4,4 @@ prodev-api/virtual/
 prodev-client/node_modules
 .env
 prodev-client/build/
+.vscode/
