@@ -10,6 +10,14 @@
 input{
   height: 30px;
 }
+p{
+ color: #AF855A;
+ font-weight: 700;
+}
+#head{
+ color: #AF855A;
+ font-weight: 700;
+}
 .brown,label{
   color: #AF855A;
    border-radius: 30px;

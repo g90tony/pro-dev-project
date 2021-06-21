@@ -6,7 +6,10 @@ body {
   width: 50%;
   padding: 10px;
 }
-
+p{
+ color: #AF855A;
+ font-weight: 700;
+}
 .split1 {
   height: 100%;
   width: 50%;
