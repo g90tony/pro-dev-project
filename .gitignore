@@ -1,8 +1,22 @@
-prodev-api/virtual/
+**/virtual/
 
+.env
+.vscode/
 
+<<<<<<< HEAD
 
 prodev-client/node_modules
 .env
 prodev-client/.firebase/hosting.YnVpbGQ.cache
 .vscode/settings.json
+=======
+prodev-client/node_modules
+prodev-client/.firebase/
+prodev-client/package-lock.json
+prodev-client/build/
+
+prodev-api/**/__pycache__/**
+**/.env/
+
+prodev-api/.env
+>>>>>>> dev
