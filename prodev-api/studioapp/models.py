@@ -2,6 +2,8 @@ from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
+from cloudinary.models import CloudinaryField
+
 # Create your models here.
 
 #STUDIO
@@ -27,7 +29,7 @@ class StudioUser(models.Model):
 #Posting adverts
 class AdvertPost(models.Model):
     studio_id = models.ForeignKey(StudioUser,on_delete=models.CASCADE)
-    advert_photos = models.ImageField(upload_to="images")
+    advert_photos = CloudinaryField("images", default=None)
     caption = models.CharField(max_length=100)
 
     def save_post(self):
@@ -56,10 +58,10 @@ class StudioProfile(models.Model):
     studio_id = models.ForeignKey(StudioUser,on_delete=models.CASCADE)
     description = models.CharField(max_length=100)
     location = models.CharField(max_length=30)
-    rates = models.DecimalField(decimal_places=2)
+    rates = models.DecimalField(max_digits=2, decimal_places=2)
     service_provided = models.ForeignKey(Services,on_delete=models.CASCADE)
     advert_photos = models.ForeignKey(AdvertPost,on_delete=models.CASCADE)
-    logo = models.ImageField(upload_to="images")
+    logo = CloudinaryField("images", default=None)
 
     @receiver(post_save, sender=StudioUser)
     def create_studio_profile(sender, instance, created, **kwargs):
@@ -92,7 +94,7 @@ class CreativeUser(models.Model):
 
 class CreativeProfile(models.Model):
     creative_id = models.ForeignKey(CreativeUser,on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to="images")
+    avatar = CloudinaryField("images", default=None)
     bio = models.CharField(max_length=100)
 
     @receiver(post_save, sender=CreativeUser)
