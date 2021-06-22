@@ -132,7 +132,7 @@ class StudioUser(models.Model):
 
 #Posting adverts
 class AdvertPost(models.Model):
-    studio_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
+    studio_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, default=1)
     advert_photos = models.ImageField(upload_to="images")
     caption = models.CharField(max_length=100)
 
@@ -162,24 +162,26 @@ class StudioProfile(models.Model):
     studio_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     description = models.CharField(max_length=100)
     location = models.CharField(max_length=30)
-    #rates = models.DecimalField(decimal_places=2, max_digits=8)
-    service_provided = models.ForeignKey(Services,on_delete=models.CASCADE)
-    advert_photos = models.ForeignKey(AdvertPost,on_delete=models.CASCADE)
+    
+    #service_provided = models.ForeignKey(Services,on_delete=models.CASCADE)
+    #advert_photos = models.ForeignKey(AdvertPost,on_delete=models.CASCADE)
     logo = models.ImageField(upload_to="images")
 
-    @receiver(post_save, sender=User)
+    #rates = models.DecimalField(decimal_places=2, max_digits=8)
+'''
+    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_studio_profile(sender, instance, created, **kwargs):
         if created:
             StudioProfile.objects.create(studio_id=instance)
 
-    @receiver(post_save, sender=User)
+    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def save_studio_profile(sender, instance, **kwargs):
         instance.StudioProfile.save()
 
     def __str__(self):
         return self.studio_id.username
 
-
+'''
 
 
 
@@ -187,7 +189,7 @@ class CreativeProfile(models.Model):
     creative_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to="images")
     bio = models.CharField(max_length=100)
-
+'''
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_creative_profile(sender, instance, created, **kwargs):
         if created:
@@ -200,7 +202,7 @@ class CreativeProfile(models.Model):
 
     def __str__(self):
         return self.creative_id.username
-
+'''
 #Review of Studios
 class Review(models.Model):
     message = models.CharField(max_length=100)
@@ -218,7 +220,7 @@ class Review(models.Model):
 #Creatives booking Studio time
 class Booking(models.Model):
     creative_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
-    studio_id = models.ForeignKey(StudioProfile,on_delete=models.CASCADE)
+    #studio_id = models.ForeignKey(StudioProfile,on_delete=models.CASCADE)
     email =  models.EmailField()
     session_duration = models.DurationField()
     session_time = models.DateTimeField()

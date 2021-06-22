@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'studioapp',
     'rest_framework',
-    'rest_framework_simplejwt',
+    #'rest_framework_simplejwt',
 ]
 
 AUTH_USER_MODEL = 'studioapp.User'
@@ -85,7 +85,7 @@ REST_FRAMEWORK = {
         
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 
 

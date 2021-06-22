@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from core.settings import *
 
 
-admin.site.register(settings.AUTH_USER_MODEL)
+
 admin.site.register(User)
 admin.site.register(StudioProfile)
 admin.site.register(CreativeProfile)
