@@ -6,3 +6,4 @@ prodev-client/node_modules
 prodev-client/build/
 .vscode/
 prodev-client/.firebase/
+prodev-client/package-lock.json
