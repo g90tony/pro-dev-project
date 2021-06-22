@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { Routes ,RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LandingComponent } from './landing/landing.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LandingComponent } from './landing/landing.component';
     StudiosignupComponent,
     StudiologinComponent,
     NavbarComponent,
-    LandingComponent
+    LandingComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
