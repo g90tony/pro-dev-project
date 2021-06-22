@@ -54,8 +54,7 @@ class User(PermissionsMixin, AbstractBaseUser):
         (2, 'creativeuser')
     )
 
-    username = models.CharField(max_length=255, unique=True)
-    password = models.CharField(max_length=255)
+    username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField(unique=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_active = models.BooleanField(default=True)
@@ -68,11 +67,7 @@ class User(PermissionsMixin, AbstractBaseUser):
 
     objects = UserManager()
 
-    def save_CreativeUser(self):
-        self.save()
-
-    def delete_CreativeUser(self):
-        self.delete()
+    
 
     def __str__(self):
         return self.email
@@ -104,6 +99,8 @@ class User(PermissionsMixin, AbstractBaseUser):
         }, settings.SECRET_KEY, algorithm='HS256')
 
         return token.decode('utf-8')
+
+   
 
 #STUDIO
 # commented this model out because the custom user model has usertype choices
@@ -165,7 +162,7 @@ class StudioProfile(models.Model):
     studio_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     description = models.CharField(max_length=100)
     location = models.CharField(max_length=30)
-    rates = models.DecimalField(decimal_places=2, max_digits=8)
+    #rates = models.DecimalField(decimal_places=2, max_digits=8)
     service_provided = models.ForeignKey(Services,on_delete=models.CASCADE)
     advert_photos = models.ForeignKey(AdvertPost,on_delete=models.CASCADE)
     logo = models.ImageField(upload_to="images")
