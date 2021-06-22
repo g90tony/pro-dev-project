@@ -1,4 +1,4 @@
-prodev-api/virtual/
+**/virtual/
 
 .env
 .vscode/
@@ -9,5 +9,6 @@ prodev-client/package-lock.json
 prodev-client/build/
 
 prodev-api/**/__pycache__/**
-prodev-api/.env/
+**/.env/
 
+prodev-api/.env
