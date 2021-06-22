@@ -47,7 +47,7 @@ class UserManager(BaseUserManager):
 # the model has also been configured in core.settings as  <AUTH_USER_MODEL = 'studioapp.CreativeUser'>
 ## note pls remember to add that setting in core.settings before pushing to github
 
-class User(models.Model):
+class User(PermissionsMixin, AbstractBaseUser):
 
     USER_TYPE_CHOICES = (
         (1, 'studiouser'),
@@ -55,15 +55,13 @@ class User(models.Model):
     )
 
     username = models.CharField(max_length=255, unique=True)
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_anonymous = models.BooleanField(default=False)
-    is_authenticated = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
