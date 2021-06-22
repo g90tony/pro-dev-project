@@ -4,3 +4,5 @@ prodev-api/virtual/
 
 prodev-client/node_modules
 .env
+prodev-client/.firebase/hosting.YnVpbGQ.cache
+.vscode/settings.json
