@@ -7,9 +7,14 @@ import { ClientloginComponent } from './clientlogin/clientlogin.component';
 import { StudiosignupComponent } from './studiosignup/studiosignup.component';
 import { StudiologinComponent } from './studiologin/studiologin.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { Routes ,RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LandingComponent } from './landing/landing.component';
+import { SearchComponent } from './search/search.component';
+import { StudiosignuppageComponent } from './studiosignuppage/studiosignuppage.component';
+import { StudioclientpageComponent } from './studioclientpage/studioclientpage.component';
+import { ProfileeditpageComponent } from './profileeditpage/profileeditpage.component';
+import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
 
 @NgModule({
   declarations: [
@@ -19,15 +24,15 @@ import { LandingComponent } from './landing/landing.component';
     StudiosignupComponent,
     StudiologinComponent,
     NavbarComponent,
-    LandingComponent
+    LandingComponent,
+    StudiosignuppageComponent,
+    StudioclientpageComponent,
+    ProfileeditpageComponent,
+    ClientviewprofileComponent,
+    SearchComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule,
-    AppRoutingModule,
-    FormsModule       
-  ],
+  imports: [BrowserModule, RouterModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
