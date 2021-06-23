@@ -10,7 +10,8 @@ urlpatterns = [
     path('api/profile/', views.CreativeProfile.as_view(), name='hello'),
     path('api/booking/', views.CreateBooking.as_view(), name='hello'),
     path('api/review/', views.CreateReview.as_view(), name='hello'),
-
-
+    path('api/signup/', views.RegistrationAPIView.as_view()),
+    path('api/login/', views.LoginAPIView.as_view()),
+    path('api/updateuser/', views.UserRetrieveUpdateAPIView.as_view()),
 
 ]
