@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 
 from .models import AdvertPost, Booking, CreativeProfile, CreativeUser, Review, Services, StudioProfile, StudioUser
-from .serializers import AdvertPostSerializer, BookingSerializer, CreativeProfileSerializer, CreativeUserSerializer, ReviewSerializer,  ServicesSerializer, StudioProfileSerializer, StudioUserSerializer, RegistrationSerializer
+from .serializers import AdvertPostSerializer, BookingSerializer, CreativeProfileSerializer, CreativeUserSerializer, ReviewSerializer,  ServicesSerializer, StudioProfileSerializer, StudioUserSerializer, RegistrationSerializer, LoginSerializer
 from .renderers import UserJSONRenderer
 # Create your views here.
 
@@ -21,16 +21,29 @@ class RegistrationAPIView(APIView):
 
     def post(self, request):
         user = request.data.get('user', {})
-
-        # The create serializer, validate serializer, save serializer pattern
-        # below is common and you will see it a lot throughout this course and
-        # your own work later on. Get familiar with it.
         serializer = self.serializer_class(data=user)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+
+class LoginAPIView(APIView):
+    permission_classes = (AllowAny,)
+    renderer_classes = (UserJSONRenderer,)
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        user = request.data.get('user', {})
+        '''
+        here intead of calling serializer.save() we use the validate method
+        to havdle evertyhing
+        '''
+     
+        serializer = self.serializer_class(data=user)
+        serializer.is_valid(raise_exception=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 '''
     
