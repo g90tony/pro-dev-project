@@ -18,6 +18,11 @@ urlpatterns = [
     path('api/StudioUser/update/<int:pk>/',views.IndividualStudioUser.as_view()),
     path('api/StudioUser/delete/<int:pk>/',views.IndividualStudioUser.as_view()),
 
+    #AdvertPost
+    path('api/advertpost/', views.AdvertPostList.as_view(), name='AdvertPost'),
+    path('api/advertpost/update/<int:pk>/',views.IndividualAdvertPost.as_view()),
+    path('api/advertpost/delete/<int:pk>/',views.IndividualAdvertPost.as_view()),
+
 
 
 ]
