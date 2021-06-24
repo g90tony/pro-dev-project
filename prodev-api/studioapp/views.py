@@ -8,8 +8,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 
-from .models import AdvertPost, Booking, CreativeProfile, CreativeUser, Review, Services, StudioProfile, StudioUser
-from .serializers import AdvertPostSerializer, BookingSerializer, CreativeProfileSerializer, CreativeUserSerializer, ReviewSerializer,  ServicesSerializer, StudioProfileSerializer, StudioUserSerializer, RegistrationSerializer, LoginSerializer, UserSerializer
+
+from .models import AdvertPost, Booking, CreativeProfile, Review, Services, StudioProfile
+from .serializers import AdvertPostSerializer, BookingSerializer, CreativeProfileSerializer, CreativeUserSerializer, ReviewSerializer,  ServicesSerializer, StudioProfileSerializer,  RegistrationSerializer, LoginSerializer, UserSerializer
 from .renderers import UserJSONRenderer
 from rest_framework.generics import RetrieveUpdateAPIView
 # Create your views here.
