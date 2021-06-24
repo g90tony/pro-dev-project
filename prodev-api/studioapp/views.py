@@ -427,3 +427,68 @@ class ServicesList(APIView):
         services=Services.objects.all()
         serializers=self.serializer_class(services, many=True)
         return Response(serializers.data)
+
+#StudioProfile
+#Update and Delete individual entries
+class IndividualStudioProfile(APIView):
+    serializer_class=StudioProfileSerializer
+    def get_studioprofile(self, pk):
+        try:
+            return StudioProfile.objects.get(pk=pk)
+        except StudioProfile.DoesNotExist:
+            return Http404()
+
+    def get(self, request,pk,format=None):
+        studioprofile = self.get_studioprofile(pk)
+        serializers = self.serializer_class(studioprofile)
+        return Response(serializers.data)
+
+    def put(self, request, pk, format=None):
+        studioprofile = self.get_studioprofile(pk)
+        serializers = self.serializer_class(studioprofile, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            studioprofile_list = serializers.data
+            response = {
+                'data': {
+                    'studioprofile': dict(studioprofile_list),
+                    'status': 'success',
+                    'message': 'StudioProfile updated successfully',
+                }
+            }
+            return Response(response)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        studioprofile = self.get_studioprofile(pk)
+        studioprofile.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+#Add and View Entries
+class StudioProfileList(APIView):
+    serializer_class=StudioProfileSerializer
+    def get(self, request, format=None):
+        studioprofile=StudioProfile.objects.all()
+        serializers=self.serializer_class(studioprofile, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers=self.serializer_class(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            studioprofile=serializers.data
+            response = {
+                'data': {
+                    'studioprofile': dict(studioprofile),
+                    'status': 'success',
+                    'message': 'StudioProfile created successfully',
+                }
+            }
+            return Response(response, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self,request, format=None):
+        studioprofile=StudioProfile.objects.all()
+        serializers=self.serializer_class(studioprofile, many=True)
+        return Response(serializers.data)
