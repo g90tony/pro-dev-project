@@ -16,6 +16,7 @@ urlpatterns = [
     '''
        path examples:
         http://127.0.0.1:8000/api/services/ === to view all items
+        http://127.0.0.1:8000/api/services/update/1/ === to update specific item
     '''  ,
 
    #StudioUser
