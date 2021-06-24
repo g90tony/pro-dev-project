@@ -26,7 +26,7 @@ urlpatterns = [
     #Services
     path('api/services/', views.ServicesList.as_view(), name='Services'),
     path('api/services/update/<int:pk>/',views.IndividualServices.as_view()),
-    path('api/services/delete/<int:pk>/',views.IndividualServices.as_view()),
+    path('api/services/delete/<int:pk>/',views.IndividualServices.as_view())
 
 
 ]
