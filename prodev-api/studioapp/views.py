@@ -362,3 +362,68 @@ class AdvertPostList(APIView):
         advertpost=AdvertPost.objects.all()
         serializers=self.serializer_class(advertpost, many=True)
         return Response(serializers.data)
+
+#Services
+#Update and Delete individual entries
+class IndividualServices(APIView):
+    serializer_class=ServicesSerializer
+    def get_services(self, pk):
+        try:
+            return Services.objects.get(pk=pk)
+        except Services.DoesNotExist:
+            return Http404()
+
+    def get(self, request,pk,format=None):
+        services = self.get_services(pk)
+        serializers = self.serializer_class(services)
+        return Response(serializers.data)
+
+    def put(self, request, pk, format=None):
+        services = self.get_services(pk)
+        serializers = self.serializer_class(services, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            services_list = serializers.data
+            response = {
+                'data': {
+                    'services': dict(services_list),
+                    'status': 'success',
+                    'message': 'Service updated successfully',
+                }
+            }
+            return Response(response)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        services = self.get_services(pk)
+        services.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+#Add and View Entries
+class ServicesList(APIView):
+    serializer_class=ServicesSerializer
+    def get(self, request, format=None):
+        services=Services.objects.all()
+        serializers=self.serializer_class(services, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers=self.serializer_class(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            services=serializers.data
+            response = {
+                'data': {
+                    'services': dict(services),
+                    'status': 'success',
+                    'message': 'Services created successfully',
+                }
+            }
+            return Response(response, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self,request, format=None):
+        services=Services.objects.all()
+        serializers=self.serializer_class(services, many=True)
+        return Response(serializers.data)
