@@ -42,10 +42,9 @@ class UserManager(BaseUserManager):
         return user
 
 #CREATIVES
-# this is the custom user model that will handle all users and their authentication
-# i have also created a custom manager above for the user-model CreativeUser
-# the model has also been configured in core.settings as  <AUTH_USER_MODEL = 'studioapp.CreativeUser'>
-## note pls remember to add that setting in core.settings before pushing to github
+# This is the custom user model that will handle all users and their authentication
+# I have also created a custom manager above for the user-model CreativeUser
+
 
 class User(PermissionsMixin, AbstractBaseUser):
 
@@ -102,11 +101,9 @@ class User(PermissionsMixin, AbstractBaseUser):
    
 
 #STUDIO
-# commented this model out because the custom user model has usertype choices
-# the user type choices will distinguish between creatives and studio users
-# this model would have brought issues with authentication handling due
-# it is required by django's inbuilt auth system to use one model for authentication
-# 
+# custom user model handles all auth
+# thus omitting repeated code
+
 '''
 class StudioUser(models.Model):
     username = models.CharField(max_length=30)
