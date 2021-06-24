@@ -13,6 +13,11 @@ urlpatterns = [
     path('api/booking/', views.CreateBooking.as_view(), name='hello'),
     path('api/review/', views.CreateReview.as_view(), name='hello'),
 
+    #StudioUser
+    path('api/StudioUser/', views.StudioUserList.as_view(), name='StudioUser'),
+    path('api/StudioUser/update/<int:pk>/',views.IndividualStudioUser.as_view()),
+    path('api/StudioUser/delete/<int:pk>/',views.IndividualStudioUser.as_view()),
+
 
 
 ]
