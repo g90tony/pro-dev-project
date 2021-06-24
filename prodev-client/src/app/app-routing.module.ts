@@ -8,10 +8,11 @@ import { LandingComponent } from './landing/landing.component';
 import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
-  { path: 'clientsignup', component: ClientsignupComponent },
-  { path: 'clientlogin', component: ClientloginComponent },
-  { path: 'studiosignup', component: StudiosignupComponent },
-  { path: 'studiologin', component: StudiologinComponent },
+  { path: 'client/signup', component: ClientsignupComponent },
+  { path: 'client/login', component: ClientloginComponent },
+  { path: 'studio/signup', component: StudiosignupComponent },
+  { path: 'studio/login', component: StudiologinComponent },
+  { path: 'studio/login', component: StudiologinComponent },
   { path: 'booking', component: BookingComponent },
   { path: '', component: LandingComponent },
 ];
