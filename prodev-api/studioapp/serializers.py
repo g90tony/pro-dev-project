@@ -1,18 +1,22 @@
 from rest_framework import serializers
-from .models import StudioUser, AdvertPost, Services, StudioProfile, CreativeUser, CreativeProfile, Review, Booking, User
+from .models import AdvertPost, Services, StudioProfile, CreativeProfile, Review, Booking, User
 from django import forms
 from django.contrib.auth import authenticate
 
 
 #Studio
-class StudioUserSerializer(serializers.ModelSerializer):
+
+
+class UserSerializer(serializers.ModelSerializer):
+    #user objects
     email = forms.EmailField(max_length=254, help_text='Required. Enter a valid email address.')
     class Meta:
-        model = StudioUser
-        fields = '__all__'
+        model = User
+        fields = ['email', 'username', 'password', 'user_type' ,'token']
+
 
 class AdvertPostSerializer(serializers.ModelSerializer):
-    studio_id = StudioUserSerializer
+    studio_id = UserSerializer
     class Meta:
         model = AdvertPost
         fields = '__all__'
@@ -23,7 +27,7 @@ class ServicesSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class StudioProfileSerializer(serializers.ModelSerializer):
-    studio_id = StudioUserSerializer
+    studio_id = UserSerializer
     service_provided = ServicesSerializer
     advert_photos = AdvertPostSerializer
     class Meta:
@@ -31,16 +35,19 @@ class StudioProfileSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 #Creatives
+#serializer
+
 class CreativeUserSerializer(serializers.ModelSerializer):
     email = forms.EmailField(max_length=254, help_text='Required. Enter a valid email address.')
     class Meta:
-        model = CreativeUser
-        fields = '__all__'
+        model = User
+        fields = ['email', 'username', 'password', 'user_type' ,'token']
+
 
 class CreativeProfileSerializer(serializers.ModelSerializer):
-    creative_id = CreativeUserSerializer
+    creative_id = UserSerializer
     class Meta:
-        model = CreativeProfile
+        model = User
         fields = '__all__'
 
 class ReviewSerializer(serializers.ModelSerializer):
