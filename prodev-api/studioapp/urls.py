@@ -11,18 +11,11 @@ urlpatterns = [
     path('api/profile/', views.CreativeProfile.as_view(), name='hello'),
     path('api/booking/', views.CreateBooking.as_view(), name='hello'),
     path('api/review/', views.CreateReview.as_view(), name='hello'),
-<<<<<<< HEAD
-    path('api/signup/', views.RegistrationAPIView.as_view()),
-    path('api/login/', views.LoginAPIView.as_view()),
-    path('api/updateuser/', views.UserRetrieveUpdateAPIView.as_view()),
-=======
-
 
    # path examples:
    #  http://127.0.0.1:8000/api/services/ --> to view all items
    #  http://127.0.0.1:8000/api/services/update/1/ --> to update specific item
    #  http://127.0.0.1:8000/api/services/delete/1/ --> to delete specific item
->>>>>>> 868d03cbb8554f66b9c2e8d8547e79df6c1d5f22
 
 
    #StudioUser
