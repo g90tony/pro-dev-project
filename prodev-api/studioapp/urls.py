@@ -26,8 +26,12 @@ urlpatterns = [
     #Services
     path('api/services/', views.ServicesList.as_view(), name='Services'),
     path('api/services/update/<int:pk>/',views.IndividualServices.as_view()),
-    path('api/services/delete/<int:pk>/',views.IndividualServices.as_view())
+    path('api/services/delete/<int:pk>/',views.IndividualServices.as_view()),
 
+    #StudioProfile
+    path('api/studioprofile/', views.StudioProfileList.as_view()),
+    path('api/studioprofile/update/<int:pk>/',views.IndividualStudioProfile.as_view()),
+    path('api/studioprofile/delete/<int:pk>/',views.IndividualStudioProfile.as_view()),
 
 ]
 if settings.DEBUG:
