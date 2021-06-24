@@ -13,8 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from decouple import config, Csv
 import dj_database_url
-import django_heroku
 import cloudinary
+import django_heroku
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -45,7 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'studioapp',
     'rest_framework',
+    #'rest_framework_simplejwt',
 ]
+
+AUTH_USER_MODEL = 'studioapp.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,7 +90,8 @@ REST_FRAMEWORK = {
         
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'prodev-api.studioapp.backends.JWTAuthentication'
     ],
 
 
