@@ -43,13 +43,25 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='StudioUser',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('username', models.CharField(max_length=30)),
+                ('password', models.CharField(max_length=30)),
+                ('email', models.EmailField(max_length=254)),
+            ],
+        ),
+        migrations.CreateModel(
             name='StudioProfile',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('description', models.CharField(max_length=100)),
                 ('location', models.CharField(max_length=30)),
+                ('rates', models.DecimalField(decimal_places=2, max_digits=8)),
                 ('logo', models.ImageField(upload_to='images')),
-                ('studio_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('advert_photos', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.advertpost')),
+                ('service_provided', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.services')),
+                ('studio_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.studiouser')),
             ],
         ),
         migrations.CreateModel(
@@ -57,7 +69,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('message', models.CharField(max_length=100)),
-                ('creative_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('creative_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.creativeuser')),
             ],
         ),
         migrations.CreateModel(
@@ -66,7 +78,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('avatar', models.ImageField(upload_to='images')),
                 ('bio', models.CharField(max_length=100)),
-                ('creative_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('creative_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.creativeuser')),
             ],
         ),
         migrations.CreateModel(
@@ -76,16 +88,13 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254)),
                 ('session_duration', models.DurationField()),
                 ('session_time', models.DateTimeField()),
-                ('creative_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('creative_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.creativeuser')),
+                ('studio_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.studioprofile')),
             ],
         ),
-        migrations.CreateModel(
-            name='AdvertPost',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('advert_photos', models.ImageField(upload_to='images')),
-                ('caption', models.CharField(max_length=100)),
-                ('studio_id', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
+        migrations.AddField(
+            model_name='advertpost',
+            name='studio_id',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='studioapp.studiouser'),
         ),
     ]
