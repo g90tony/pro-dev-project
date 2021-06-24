@@ -13,12 +13,12 @@ urlpatterns = [
     path('api/booking/', views.CreateBooking.as_view(), name='hello'),
     path('api/review/', views.CreateReview.as_view(), name='hello'),
 
-    '''
-       path examples:
-        http://127.0.0.1:8000/api/services/ === to view all items
-        http://127.0.0.1:8000/api/services/update/1/ === to update specific item
-        http://127.0.0.1:8000/api/services/delete/1/ === to delete specific item
-    '''  ,
+
+   # path examples:
+   #  http://127.0.0.1:8000/api/services/ --> to view all items
+   #  http://127.0.0.1:8000/api/services/update/1/ --> to update specific item
+   #  http://127.0.0.1:8000/api/services/delete/1/ --> to delete specific item
+
 
    #StudioUser
    path('api/StudioUser/', views.StudioUserList.as_view(), name='StudioUser'),
