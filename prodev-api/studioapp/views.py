@@ -298,3 +298,67 @@ class StudioUserList(APIView):
         return Response(serializers.data)
 
 
+#AdvertPost View
+#Update and Delete individual entries
+class IndividualAdvertPost(APIView):
+    serializer_class=AdvertPostSerializer
+    def get_advertpost(self, pk):
+        try:
+            return AdvertPost.objects.get(pk=pk)
+        except AdvertPost.DoesNotExist:
+            return Http404()
+
+    def get(self, request,pk,format=None):
+        advertpost = self.get_advertpost(pk)
+        serializers = self.serializer_class(advertpost)
+        return Response(serializers.data)
+
+    def put(self, request, pk, format=None):
+        advertpost = self.get_advertpost(pk)
+        serializers = self.serializer_class(advertpost, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            advertpost_list = serializers.data
+            response = {
+                'data': {
+                    'advertpost': dict(advertpost_list),
+                    'status': 'success',
+                    'message': 'AdvertPost updated successfully',
+                }
+            }
+            return Response(response)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        advertpost = self.get_advertpost(pk)
+        advertpost.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+#Add and View Entries
+class AdvertPostList(APIView):
+    serializer_class=AdvertPostSerializer
+    def get(self, request, format=None):
+        advertpost=AdvertPost.objects.all()
+        serializers=self.serializer_class(advertpost, many=True)
+        return Response(serializers.data)
+
+    def post(self, request, format=None):
+        serializers=self.serializer_class(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            advertpost=serializers.data
+            response = {
+                'data': {
+                    'advertpost': dict(advertpost),
+                    'status': 'success',
+                    'message': 'Advertpost created successfully',
+                }
+            }
+            return Response(response, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self,request, format=None):
+        advertpost=AdvertPost.objects.all()
+        serializers=self.serializer_class(advertpost, many=True)
+        return Response(serializers.data)
