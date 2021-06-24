@@ -13,7 +13,7 @@ import { LandingComponent } from './landing/landing.component';
 import { SearchComponent } from './search/search.component';
 import { StudiosignuppageComponent } from './studiosignuppage/studiosignuppage.component';
 import { StudioclientpageComponent } from './studioclientpage/studioclientpage.component';
-import { ProfileeditpageComponent } from './profileeditpage/profileeditpage.component';
+import { StudioEditProfileComponent } from './studioeditprofile/studioeditprofile.component';
 import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
 import { BookingComponent } from './booking/booking.component';
 
@@ -28,17 +28,12 @@ import { BookingComponent } from './booking/booking.component';
     LandingComponent,
     StudiosignuppageComponent,
     StudioclientpageComponent,
-    ProfileeditpageComponent,
+    StudioEditProfileComponent,
     ClientviewprofileComponent,
     SearchComponent,
-    BookingComponent
+    BookingComponent,
   ],
-  imports: [
-    BrowserModule,
-    RouterModule,
-    AppRoutingModule,
-    FormsModule       
-  ],
+  imports: [BrowserModule, RouterModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
