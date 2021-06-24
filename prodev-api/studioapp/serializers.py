@@ -24,9 +24,11 @@ class StudioProfileSerializer(serializers.ModelSerializer):
     studio_id = StudioUserSerializer
     service_provided = ServicesSerializer
     advert_photos = AdvertPostSerializer
+
     class Meta:
         model = StudioProfile
         fields = '__all__'
+
 
 #Creatives
 class CreativeUserSerializer(serializers.ModelSerializer):
