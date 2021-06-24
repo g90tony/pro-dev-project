@@ -80,6 +80,7 @@ ROUTE: /api/creative/user
 '''
 class ManyCreativeUsers(APIView):
     permission_classes = (IsAuthenticated)
+    renderer_classes = (UserJSONRenderer,)
     def get(self, request, format=None ):
         all_creative_users = User.objects.all()
         
@@ -108,9 +109,10 @@ ROUTE: /api/creative/user/<int:user_id>
 '''
 class SingleCreativeUsers(APIView):
     permission_classes = (IsAuthenticated)
+    renderer_classes = (UserJSONRenderer,)
     def get_user_object(self, pk):
         try:
-            return CreativeUser.objects.get(id=pk)
+            return User.objects.get(id=pk)
         
         except:
             Http404
@@ -170,6 +172,7 @@ ROUTE: /api/creative/profile/<int:user_id>
 '''
 class CreativeProfile(APIView):
     permission_classes = (IsAuthenticated)
+    renderer_classes = (UserJSONRenderer,)
     def get_profile_obj(user_id):
         
         try: 
@@ -251,6 +254,7 @@ ROUTE: /api/creative/book-session/
 
 class CreateBooking(APIView):
     permission_classes = (IsAuthenticated)
+    renderer_classes = (UserJSONRenderer,)
     def post(self, request, format=None):
        
        serializer = BookingSerializer(data=request.data)
@@ -274,6 +278,7 @@ ROUTE: /api/creative/book-session/
 '''
 class CreateReview(APIView):
     permission_classes = (IsAuthenticated)
+    renderer_classes = (UserJSONRenderer,)
     def post(Self, request, format=None):
         
         serializer = ReviewSerializer(data=request.data)

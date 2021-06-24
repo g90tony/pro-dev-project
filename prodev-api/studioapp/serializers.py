@@ -48,7 +48,7 @@ class CreativeProfileSerializer(serializers.ModelSerializer):
     creative_id = UserSerializer
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['email', 'username', 'password', 'user_type' ,'token']
 
 class ReviewSerializer(serializers.ModelSerializer):
     creative_id = CreativeUserSerializer
