@@ -8,13 +8,13 @@ import { LandingComponent } from './landing/landing.component';
 import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
-{path:"clientsignup", component:ClientsignupComponent},
-{path:"clientlogin", component:ClientloginComponent},
-{path:"studiosignup", component:StudiosignupComponent},
-{path:"studiologin", component:StudiologinComponent},
-{path:"booking", component:BookingComponent},
-{path:"", component:LandingComponent},
-]
+  { path: 'clientsignup', component: ClientsignupComponent },
+  { path: 'clientlogin', component: ClientloginComponent },
+  { path: 'studiosignup', component: StudiosignupComponent },
+  { path: 'studiologin', component: StudiologinComponent },
+  { path: 'booking', component: BookingComponent },
+  { path: '', component: LandingComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
