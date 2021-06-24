@@ -1,5 +1,4 @@
 * {
-  font-family: "Merriweather", serif;
   color: rgba(0, 0, 0, 0.75);
 }
 /*...extensions...*/
@@ -157,7 +156,8 @@ p {
   background: #999;
   grid-row: 1/5;
   grid-column: 3/3;
-  max-height: 340px;
+  height: 100%;
+  max-height: 300px;
   background: url(/assets/img/bg1.jpg) no-repeat center center;
   background-size: cover;
   margin: 0 -22.5px 0 0px;
