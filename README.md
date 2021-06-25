@@ -6,13 +6,14 @@ Studio Sesh exists to connect the music artists to music production studios and 
 
 ## Tech Stack
 
-**Client:** Angular, HTML, CSS, Bootstrap
+**Client:** Angular, HTML, CSS, Bootstrap, Firebase Hosting
 
-**Server:** Django
+**Server:** Django, JSON Web Tokens, Postgres SQL, Django Rest Framework, Heroku
 
 ## Demo
 
-Insert gif or link to demo
+**Frontend** https://studiosesh-9dc2c.web.app/
+**Backend**
 
 ## Authors
 
