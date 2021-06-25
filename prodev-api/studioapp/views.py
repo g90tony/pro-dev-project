@@ -169,26 +169,26 @@ ROUTE: /api/creative/profile/<int:user_id>
 '''
 class CreativeProfile(APIView):
     permission_classes = (IsAuthenticated)
-    def get_profile_obj(user_id):
+    def get_profile_obj(pk):
         
         try: 
-            return CreativeProfile.objects.get(creative_id=user_id)
+            return CreativeProfile.objects.get(id=pk)
         
         except:
             
             return Http404
     
-    def get(self, request, user_id, format=None):
+    def get(self, request, profile_id, format=None):
         
-        user_profile = self.get_profile_obj(user_id)
+        user_profile = self.get_profile_obj(profile_id)
         
         serializer = CreativeProfileSerializer(user_profile)
         
         return Response(serializer.data, status=status.HTTP_200_OK)
         
-    def post(self, request, user_id, format=None):
+    def post(self, request, profile_id, format=None):
         
-        profile_exists = self.get_profile_obj(user_id)
+        profile_exists = self.get_profile_obj(profile_id)
         
         if profile_exists:
             return Http404
@@ -203,9 +203,9 @@ class CreativeProfile(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-    def patch(self, request, user_id, format=None):
+    def patch(self, request, profile_id, format=None):
         
-        user_profile = self.get_profile_obj(user_id)
+        user_profile = self.get_profile_obj(profile_id)
         new_avatar = request.get('avatar')
         new_bio = request.get('bio')
         
@@ -229,9 +229,9 @@ class CreativeProfile(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-    def delete(self, request, user_id, format=None ):
+    def delete(self, request, profile_id, format=None ):
         
-        user_profile = self.get_profile_obj(user_id)
+        user_profile = self.get_profile_obj(profile_id)
         try: 
             user_profile.delete()
             
