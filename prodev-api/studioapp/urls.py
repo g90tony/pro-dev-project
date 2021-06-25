@@ -6,11 +6,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     #path('hello/', views.HelloView.as_view(), name='hello'),
-    path('api/manyusers/', views.ManyCreativeUsers.as_view(), name='hello'),
-    path('api/singleusers/', views.SingleCreativeUsers.as_view(), name='hello'),
-    path('api/profile/', views.CreativeProfile.as_view(), name='hello'),
-    path('api/booking/', views.CreateBooking.as_view(), name='hello'),
-    path('api/review/', views.CreateReview.as_view(), name='hello'),
+    path('api/client-user/', views.ManyCreativeUsers.as_view(), name='hello'),
+    path('api/client-user/<int:user_id>', views.SingleCreativeUsers.as_view(), name='hello'),
+    path('api/client-user/profile/<int:profile_id>', views.CreativeProfile.as_view(), name='hello'),
+    path('api/client-user/create-booking/', views.CreateBooking.as_view(), name='hello'),
+    path('api/client-user/add-review/', views.CreateReview.as_view(), name='hello'),
 
    # path examples:
    #  http://127.0.0.1:8000/api/services/ --> to view all items
