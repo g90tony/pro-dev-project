@@ -5,14 +5,21 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    #path('hello/', views.HelloView.as_view(), name='hello'),
-    path('api/client-user/', views.ManyCreativeUsers.as_view(), name='hello'),
-    path('api/client-user/<int:user_id>', views.SingleCreativeUsers.as_view(), name='hello'),
-    path('api/client-user/profile/<int:profile_id>', views.CreativeProfile.as_view(), name='hello'),
-    path('api/client-user/create-booking/', views.CreateBooking.as_view(), name='hello'),
-    path('api/client-user/add-review/', views.CreateReview.as_view(), name='hello'),
+   # Authentication routes
+   path('api/user/sign-up', views.RegistrationAPIView.as_view(), name='user_register'),
+   path('api/user/sign-in', views.LoginAPIView.as_view(), name='user_login'),
+    
+   #client profile 
+   path('api/client-user/profile/', views.CreativeProfile.as_view(), name='multi_profile_crud'),
+   path('api/client-user/profile/<int:profile_id>', views.CreativeProfile.as_view(), name='profile_crud'),
+   
+   # booking
+   path('api/client-user/create-booking/', views.CreateBooking.as_view(), name='make_booking'),
+   
+   # reviews
+   path('api/client-user/add-review/', views.CreateReview.as_view(), name='hello'),
 
-   # path examples:
+   # path examples: 
    #  http://127.0.0.1:8000/api/services/ --> to view all items
    #  http://127.0.0.1:8000/api/services/update/1/ --> to update specific item
    #  http://127.0.0.1:8000/api/services/delete/1/ --> to delete specific item
