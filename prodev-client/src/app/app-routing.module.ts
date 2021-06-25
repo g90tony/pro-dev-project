@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchComponent } from './components/search/search.component';
-import { ClientloginComponent } from './pages/client/clientlogin/clientlogin.component';
-import { ClientsignupComponent } from './pages/client/clientsignup/clientsignup.component';
-import { ClientviewprofileComponent } from './pages/client/clientviewprofile/clientviewprofile.component';
-import { LandingComponent } from './pages/landing/landing.component';
-import { StudioclientpageComponent } from './pages/studio/studioclientpage/studioclientpage.component';
-import { StudioEditProfileComponent } from './pages/studio/studioeditprofile/studioeditprofile.component';
-import { StudiologinComponent } from './pages/studio/studiologin/studiologin.component';
-import { StudiosignupComponent } from './pages/studio/studiosignup/studiosignup.component';
+import { ClientsignupComponent } from './clientsignup/clientsignup.component';
+import { ClientloginComponent } from './clientlogin/clientlogin.component';
+import { StudiosignupComponent } from './studiosignup/studiosignup.component';
+import { StudiologinComponent } from './studiologin/studiologin.component';
+import { LandingComponent } from './landing/landing.component';
+import { BookingComponent } from './booking/booking.component';
+import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
+import { StudioEditProfileComponent } from './studioeditprofile/studioeditprofile.component';
+import { SearchComponent } from './search/search.component';
+import { StudioclientpageComponent } from './studioclientpage/studioclientpage.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
