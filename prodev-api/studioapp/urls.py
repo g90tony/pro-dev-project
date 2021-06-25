@@ -19,14 +19,14 @@ urlpatterns = [
 
 
    #StudioUser
-   path('api/StudioUser/', views.StudioUserList.as_view(), name='StudioUser'),
-   path('api/StudioUser/update/<int:pk>/',views.IndividualStudioUser.as_view()),
-   path('api/StudioUser/delete/<int:pk>/',views.IndividualStudioUser.as_view()),
+   path('api/studio-user/', views.StudioUserList.as_view(), name='StudioUser'),
+   path('api/studio-user/update/<int:pk>/',views.IndividualStudioUser.as_view()),
+   path('api/studio-user/delete/<int:pk>/',views.IndividualStudioUser.as_view()),
 
    #AdvertPost
-   path('api/advertpost/', views.AdvertPostList.as_view(), name='AdvertPost'),
-   path('api/advertpost/update/<int:pk>/',views.IndividualAdvertPost.as_view()),
-   path('api/advertpost/delete/<int:pk>/',views.IndividualAdvertPost.as_view()),
+   path('api/advert-post/', views.AdvertPostList.as_view(), name='AdvertPost'),
+   path('api/advert-post/update/<int:pk>/',views.IndividualAdvertPost.as_view()),
+   path('api/advert-post/delete/<int:pk>/',views.IndividualAdvertPost.as_view()),
 
    #Services
    path('api/services/', views.ServicesList.as_view(), name='Services'),
@@ -34,9 +34,9 @@ urlpatterns = [
    path('api/services/delete/<int:pk>/',views.IndividualServices.as_view()),
 
    #StudioProfile
-   path('api/studioprofile/', views.StudioProfileList.as_view()),
-   path('api/studioprofile/update/<int:pk>/',views.IndividualStudioProfile.as_view()),
-   path('api/studioprofile/delete/<int:pk>/',views.IndividualStudioProfile.as_view()),
+   path('api/studio-user/profile/', views.StudioProfileList.as_view()),
+   path('api/studio-user/profile/update/<int:pk>/',views.IndividualStudioProfile.as_view()),
+   path('api/studio-user/profile/delete/<int:pk>/',views.IndividualStudioProfile.as_view()),
 
 ]
 if settings.DEBUG:
