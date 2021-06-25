@@ -1,37 +1,58 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from './../environments/environment.prod';
-import { SearchComponent } from './app/search/search.component';
-import { Clients } from 'src/app/module/clients';
+import { environment } from './../environments/environment';
+import { SearchComponent } from '../app/components/search/search.component';
+import { User } from 'src/app/models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClientsService {
-
-  clients: Clients[] = [];
+  clients: User[] = [];
   _URL = '';
   token = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  searchClients(searchTerm: string) {
-    interface ApiResponse {
-      
-    }
-
+  searchStudios(searchTerm: string) {
     let promise = new Promise<void>((resolve, reject) => {
       this.clients = [];
-      this.http.get<ApiResponse>(this._URL + searchTerm + this.token).toPromise().then((results) => {
-        this.clients.push(results);
-        console.log(results);
+      this.http
+        .get<User>(this._URL + searchTerm + this.token)
+        .toPromise()
+        .then(
+          (results) => {
+            this.clients.push(results);
+            console.log(results);
 
-        resolve();
-      }, (err) => {
-        reject();
-      }
-      )
-    })
+            resolve();
+          },
+          (err) => {
+            reject();
+          }
+        );
+    });
+    return promise;
+  }
+
+  creatProfile(newProfile: string) {
+    let promise = new Promise<void>((resolve, reject) => {
+      this.clients = [];
+      this.http
+        .get<User>(this._URL + newProfile + this.token)
+        .toPromise()
+        .then(
+          (results) => {
+            this.clients.push(results);
+            console.log(results);
+
+            resolve();
+          },
+          (err) => {
+            reject();
+          }
+        );
+    });
     return promise;
   }
 }

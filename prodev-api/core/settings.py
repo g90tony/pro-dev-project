@@ -11,10 +11,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
+from decouple import config 
+import cloudinary
+import django_heroku
+import dj_database_url
+import os
+=======
 from decouple import config, Csv
 import dj_database_url
-import django_heroku
 import cloudinary
+import django_heroku
+>>>>>>> dev
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -45,7 +54,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'studioapp',
     'rest_framework',
+    #'rest_framework_simplejwt',
 ]
+
+AUTH_USER_MODEL = 'studioapp.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,7 +98,8 @@ REST_FRAMEWORK = {
         
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'prodev-api.studioapp.backends.JWTAuthentication'
     ],
 
 
@@ -150,6 +163,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 STATICFILES_DIRS = [
      os.path.join(BASE_DIR, "static")
@@ -166,4 +182,5 @@ cloudinary.config(
     api_secret = config('CLOUDINARY_SECRET_KEY'),
 ) 
 
-django_heroku.settings(locals())
+# Configure Django App for Heroku.
+django_heroku.settings(locals()) 
