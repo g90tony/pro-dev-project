@@ -37,8 +37,8 @@ class LoginAPIView(APIView):
     def post(self, request):
         user = request.data.get('user', {})
         '''
-        here intead of calling serializer.save() we use the validate method
-        to havdle evertyhing
+        here instead of calling serializer.save() we use the validate method
+        to handle everything
         '''
      
         serializer = self.serializer_class(data=user)
