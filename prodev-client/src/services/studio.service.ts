@@ -2,36 +2,37 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../environments/environment.prod';
 import { Studio } from '../app/module/studio';
-import { SearchComponent } from './app/search/search.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StudioService {
-
   studio: Studio[] = [];
   _URL = '';
   token = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   searchStudio(searchTerm: string) {
-    interface ApiResponse {
-      
-    }
+    interface ApiResponse {}
 
     let promise = new Promise<void>((resolve, reject) => {
       this.studio = [];
-      this.http.get<ApiResponse>(this._URL + searchTerm + this.token).toPromise().then((results) => {
-        this.studio.push(results);
-        console.log(results);
+      this.http
+        .get<ApiResponse>(this._URL + searchTerm + this.token)
+        .toPromise()
+        .then(
+          (results) => {
+            this.studio.push(results);
+            console.log(results);
 
-        resolve();
-      }, (err) => {
-        reject();
-      }
-      )
-    })
+            resolve();
+          },
+          (err) => {
+            reject();
+          }
+        );
+    });
     return promise;
   }
 }
