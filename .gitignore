@@ -1,8 +1,20 @@
-prodev-api/virtual/
+**/virtual/
 
+.env
+.vscode/
+
+
+
+
+.vscode/settings.json
 
 prodev-client/node_modules
-.env
-prodev-client/build/
-.vscode/
 prodev-client/.firebase/
+prodev-client/package-lock.json
+prodev-client/build/
+
+prodev-api/**/__pycache__/**
+**/.env/
+
+prodev-api/.env
+

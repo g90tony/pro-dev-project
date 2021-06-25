@@ -11,15 +11,26 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
 from decouple import config 
 import cloudinary
 import django_heroku
 import dj_database_url
 import os
+=======
+from decouple import config, Csv
+import dj_database_url
+import cloudinary
+import django_heroku
+>>>>>>> dev
+
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SECRET_KEY = config('SECRET_KEY')
+MODE=config("MODE", default="dev")
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -28,9 +39,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,7 +53,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'studioapp',
+    'rest_framework',
+    #'rest_framework_simplejwt',
 ]
+
+AUTH_USER_MODEL = 'studioapp.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -75,6 +90,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'prodev-api.studioapp.backends.JWTAuthentication'
+    ],
+
+
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -99,6 +128,7 @@ else:
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -132,10 +162,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
+]
+
+STATICFILES_DIRS = [
+     os.path.join(BASE_DIR, "static")
 ]
 
 # Default primary key field type

@@ -1,0 +1,46 @@
+<body>
+  <div class="wrapper" style="background-image: url('./assets/img/bg1.jpg')">
+    <div class="inner rounded-lg">
+      <div class="image-holder">
+        <img src="./assets/img/bg1.jpg" n class="rounded-lg" alt="" />
+      </div>
+      <form [formGroup]="client_sign_in" (ngSubmit)="onSubmit() class="my-auto">
+        <h3 class="font-weight-bolder">Login Form</h3>
+        <div class="form-wrapper">
+          <input
+            type="text"
+            placeholder="Username"
+            [formControl]="username"
+            class="form-control"
+          />
+          <i class=""></i>
+        </div>
+
+        <div class="form-wrapper">
+          <input
+            type="password"
+            placeholder="Password"
+            [formControl]="password"
+            class="form-control"
+          />
+          <i class=""></i>
+        </div>
+
+        <button class="rounded-lg my-button" [disabled]="!profileForm.valid">Login</button>
+        <div class="row mt-3">
+          <p class="auth-link">
+            If you don't have an account,
+            <span><a href="/client/signup" class="">click here</a></span> to
+            create one.
+          </p>
+        </div>
+        <div class="row mt-3">
+          <p class="auth-link text-center">
+            If you are lost,
+            <span><a href="/" class="">click here</a></span> to go back home.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
