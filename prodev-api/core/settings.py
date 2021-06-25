@@ -11,10 +11,18 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
+from decouple import config 
+import cloudinary
+import django_heroku
+import dj_database_url
+import os
+=======
 from decouple import config, Csv
 import dj_database_url
 import cloudinary
 import django_heroku
+>>>>>>> dev
 
 import os
 
@@ -155,6 +163,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 STATICFILES_DIRS = [
      os.path.join(BASE_DIR, "static")
@@ -171,4 +182,5 @@ cloudinary.config(
     api_secret = config('CLOUDINARY_SECRET_KEY'),
 ) 
 
-django_heroku.settings(locals())
+# Configure Django App for Heroku.
+django_heroku.settings(locals()) 
