@@ -3,9 +3,6 @@
 .env
 .vscode/
 
-
-
-
 .vscode/settings.json
 
 prodev-client/node_modules
