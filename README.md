@@ -241,7 +241,8 @@ Studio Sesh exists to connect the music artists to music production studios and 
 ## Demo
 
 **Frontend** https://studiosesh-9dc2c.web.app/
-**Backend**
+
+**Backend** https://studio-sesh-api.herokuapp.com/
 
 ## Authors
 
