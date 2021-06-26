@@ -2,34 +2,41 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientsignupComponent } from './clientsignup/clientsignup.component';
-import { ClientloginComponent } from './clientlogin/clientlogin.component';
-import { StudiosignupComponent } from './studiosignup/studiosignup.component';
-import { StudiologinComponent } from './studiologin/studiologin.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { LandingComponent } from './landing/landing.component';
-import { SearchComponent } from './search/search.component';
-import { StudiosignuppageComponent } from './studiosignuppage/studiosignuppage.component';
-import { StudioclientpageComponent } from './studioclientpage/studioclientpage.component';
-import { StudioEditProfileComponent } from './studioeditprofile/studioeditprofile.component';
-import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
-import { BookingComponent } from './booking/booking.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { ClientsignupComponent } from './pages/client/clientsignup/clientsignup.component';
+import { ClientloginComponent } from './pages/client/clientlogin/clientlogin.component';
+import { ClientviewprofileComponent } from './pages/client/clientviewprofile/clientviewprofile.component';
+import { ClientEditProfileComponent } from './pages/client/clienteditprofile/clienteditprofile.component';
+
+import { StudiosignupComponent } from './pages/studio/studiosignup/studiosignup.component';
+import { StudiologinComponent } from './pages/studio/studiologin/studiologin.component';
+import { StudiosignuppageComponent } from './pages/studio/studiosignuppage/studiosignuppage.component';
+import { StudioclientpageComponent } from './pages/studio/studioclientpage/studioclientpage.component';
+import { StudioEditProfileComponent } from './pages/studio/studioeditprofile/studioeditprofile.component';
+
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchComponent } from './components/search/search.component';
+import { BookingComponent } from './components/booking/booking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
+
     ClientsignupComponent,
     ClientloginComponent,
+    ClientviewprofileComponent,
+    ClientEditProfileComponent,
+
     StudiosignupComponent,
     StudiologinComponent,
-    NavbarComponent,
-    LandingComponent,
     StudiosignuppageComponent,
     StudioclientpageComponent,
     StudioEditProfileComponent,
-    ClientviewprofileComponent,
+
+    NavbarComponent,
     SearchComponent,
     BookingComponent,
   ],
