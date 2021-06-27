@@ -1,40 +1,46 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { ClientsignupComponent } from './clientsignup/clientsignup.component';
-import { ClientloginComponent } from './clientlogin/clientlogin.component';
-import { StudiosignupComponent } from './studiosignup/studiosignup.component';
-import { StudiologinComponent } from './studiologin/studiologin.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { LandingComponent } from './landing/landing.component';
-import { SearchComponent } from './search/search.component';
 import { StudiosignuppageComponent } from './studiosignuppage/studiosignuppage.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { StudioclientpageComponent } from './studioclientpage/studioclientpage.component';
-import { StudioEditProfileComponent } from './studioeditprofile/studioeditprofile.component';
+import { ProfileeditpageComponent } from './profileeditpage/profileeditpage.component';
 import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
-import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientsignupComponent,
-    ClientloginComponent,
-    StudiosignupComponent,
-    StudiologinComponent,
-    NavbarComponent,
-    LandingComponent,
     StudiosignuppageComponent,
     StudioclientpageComponent,
-    StudioEditProfileComponent,
+    ProfileeditpageComponent,
     ClientviewprofileComponent,
-    SearchComponent,
-    BookingComponent,
   ],
-  imports: [BrowserModule, RouterModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot([
+      {
+        path: "signup",
+        component: StudiosignuppageComponent
+      },
+      {
+        path: "create_profile",
+        component: StudioclientpageComponent
+      },
+      {
+        path: "edit",
+        component: ProfileeditpageComponent
+      },
+      {
+        path: "view_profile",
+        component: ClientviewprofileComponent
+      },
+
+    ])
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
