@@ -4,19 +4,37 @@
       <div class="image-holder">
         <img src="./assets/img/bg1.jpg" n class="rounded-lg" alt="" />
       </div>
-      <form action="" class="my-auto">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="my-auto">
         <h3 class="font-weight-bolder">Login Form</h3>
         <div class="form-wrapper">
-          <input type="text" placeholder="Username" class="form-control" />
+          <input
+            type="text"
+            placeholder="Username"
+            formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && form.username.errors }"
+            class="form-control"
+          />
           <i class=""></i>
         </div>
 
         <div class="form-wrapper">
-          <input type="password" placeholder="Password" class="form-control" />
+          <input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && form.password.errors }"
+            class="form-control"
+          />
           <i class=""></i>
         </div>
 
-        <button class="rounded-lg my-button">Login</button>
+        <button class="rounded-lg my-button" [disabled]="loading">
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span
+          >Login
+        </button>
         <div class="row mt-3">
           <p class="auth-link">
             If you don't have an account,
