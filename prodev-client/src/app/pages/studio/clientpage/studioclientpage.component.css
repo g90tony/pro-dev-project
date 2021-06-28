@@ -6,9 +6,9 @@ body {
   width: 50%;
   padding: 10px;
 }
-p{
- color: #AF855A;
- font-weight: 700;
+p {
+  color: #af855a;
+  font-weight: 700;
 }
 .split1 {
   height: 100%;
@@ -19,19 +19,20 @@ p{
   overflow-x: hidden;
   padding-top: 20px;
 }
-input{
+input {
   height: 30px;
 }
-.brown,label{
-  color: #AF855A;
-   border-radius: 30px;
+.brown,
+label {
+  color: #af855a;
+  border-radius: 30px;
 }
-h3{
-  color: #5F9EA0;
+h3 {
+  color: #5f9ea0;
   font-size: 25px;
   font-weight: bolder;
 }
-.btn{
+.btn {
   background-color: brown;
 }
 .split2 {
@@ -54,10 +55,10 @@ h3{
 
 .right {
   right: 0;
-  background-image: url('../../assets/background-images/dataz.jpeg');
+  background-image: url("../../../../assets/background-images/dataz.jpeg");
 }
 
-.centered1{
+.centered1 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,10 +71,10 @@ h3{
   border-radius: 50%;
 }
 
-#button{
-  background-color: #AF855A;
-  color: #FFFFFF;
+#button {
+  background-color: #af855a;
+  color: #ffffff;
   font-weight: 600;
   padding: 6px;
   border-radius: 10px;
- }
+}
