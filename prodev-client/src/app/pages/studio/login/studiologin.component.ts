@@ -29,7 +29,7 @@ export class StudiologinComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required, Validators.pattern('^[a-zA-Z3*$')],
+      username: ['', Validators.required],
       password: ['', Validators.required, Validators.minLength(6)],
     });
 
