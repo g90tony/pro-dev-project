@@ -12,11 +12,11 @@ import { ClientloginComponent } from './pages/client/login/clientlogin.component
 import { ClientviewprofileComponent } from './pages/client/viewprofile/clientviewprofile.component';
 import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
 
-import { StudiosignupComponent } from './pages/studio/studiosignup/studiosignup.component';
-import { StudiologinComponent } from './pages/studio/studiologin/studiologin.component';
-import { StudiosignuppageComponent } from './pages/studio/studiosignuppage/studiosignuppage.component';
-import { StudioclientpageComponent } from './pages/studio/studioclientpage/studioclientpage.component';
-import { StudioEditProfileComponent } from './pages/studio/studioeditprofile/studioeditprofile.component';
+import { StudiosignupComponent } from './pages/studio/signup/studiosignup.component';
+import { StudiologinComponent } from './pages/studio/login/studiologin.component';
+import { StudiosignuppageComponent } from './pages/studio/signuppage/studiosignuppage.component';
+import { StudioclientpageComponent } from './pages/studio/clientpage/studioclientpage.component';
+import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
