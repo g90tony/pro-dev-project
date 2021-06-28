@@ -5,7 +5,9 @@ import { ClientEditProfileComponent } from './pages/client/editprofile/clientedi
 import { ClientloginComponent } from './pages/client/login/clientlogin.component';
 import { ClientsignupComponent } from './pages/client/signup/clientsignup.component';
 import { ClientviewprofileComponent } from './pages/client/viewprofile/clientviewprofile.component';
+
 import { LandingComponent } from './pages/landing/landing.component';
+
 import { StudioclientpageComponent } from './pages/studio/clientpage/studioclientpage.component';
 import { StudiodashboardComponent } from './pages/studio/dashboard/studiodashboard.component';
 import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
@@ -14,7 +16,6 @@ import { StudiosignupComponent } from './pages/studio/signup/studiosignup.compon
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: '**', redirectTo: '/' },
   // client routes
   { path: 'client/signup', component: ClientsignupComponent },
   { path: 'client/login', component: ClientloginComponent },
@@ -29,6 +30,8 @@ const routes: Routes = [
   },
   { path: 'studio/profile/edit', component: StudioEditProfileComponent },
   { path: 'studio/profile/create', component: StudioclientpageComponent },
+
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
