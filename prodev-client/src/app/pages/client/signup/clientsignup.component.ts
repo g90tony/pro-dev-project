@@ -29,10 +29,11 @@ export class ClientsignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      username: ['', Validators.required, Validators.pattern('^[a-zA-Z3*$')],
+      username: ['', Validators.required],
       email: ['', Validators.required],
-      user_type: ['', Validators.required, Validators.maxLength(1)],
-      password: ['', Validators.required, Validators.minLength(6)],
+      user_type: ['', [Validators.required, Validators.maxLength(1)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      password2: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     this.returnURI = this.route.snapshot.queryParams['returnUrl'] || '/';

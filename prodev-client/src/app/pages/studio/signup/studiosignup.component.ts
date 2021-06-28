@@ -33,6 +33,7 @@ export class StudiosignupComponent implements OnInit {
       email: ['', Validators.required],
       user_type: ['', Validators.required, Validators.maxLength(1)],
       password: ['', Validators.required, Validators.minLength(6)],
+      password2: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     this.returnURI = this.route.snapshot.queryParams['returnUrl'] || '/';
