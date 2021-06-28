@@ -6,21 +6,36 @@
       </div>
       <form action="">
         <h3 class="font-weight-bold">Registration Form</h3>
-        <div class="form-group">
-          <input type="text" placeholder="First Name" class="form-control" />
-          <input type="text" placeholder="Last Name" class="form-control" />
-        </div>
+
         <div class="form-wrapper">
-          <input type="text" placeholder="Username" class="form-control" />
+          <input
+            type="text"
+            placeholder="Username"
+            class="form-control"
+            formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && form.username.errors }"
+          />
           <i class="zmdi zmdi-account"></i>
         </div>
         <div class="form-wrapper">
-          <input type="text" placeholder="Email Address" class="form-control" />
+          <input
+            type="text"
+            placeholder="Email Address"
+            class="form-control"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && form.email.errors }"
+          />
           <i class="zmdi zmdi-email"></i>
         </div>
 
         <div class="form-wrapper">
-          <input type="password" placeholder="Password" class="form-control" />
+          <input
+            type="password"
+            placeholder="Password"
+            class="form-control"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && form.password.errors }"
+          />
           <i class="zmdi zmdi-lock"></i>
         </div>
         <div class="form-wrapper">
@@ -28,6 +43,8 @@
             type="password"
             placeholder="Confirm Password"
             class="form-control"
+            formControlName="password2"
+            [ngClass]="{ 'is-invalid': submitted && form.password2.errors }"
           />
           <i class="zmdi zmdi-lock"></i>
         </div>
