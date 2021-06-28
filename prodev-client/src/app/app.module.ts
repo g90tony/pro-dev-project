@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { LandingComponent } from './pages/landing/landing.component';
 import { ClientsignupComponent } from './pages/client/clientsignup/clientsignup.component';
 import { ClientloginComponent } from './pages/client/clientlogin/clientlogin.component';
@@ -19,6 +21,9 @@ import { StudioEditProfileComponent } from './pages/studio/studioeditprofile/stu
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { BookingComponent } from './components/booking/booking.component';
+
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/errors.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,8 +45,17 @@ import { BookingComponent } from './components/booking/booking.component';
     SearchComponent,
     BookingComponent,
   ],
-  imports: [BrowserModule, RouterModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
