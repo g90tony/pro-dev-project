@@ -31,7 +31,6 @@ export class ClientsignupComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', Validators.required],
-      user_type: ['', [Validators.required, Validators.maxLength(1)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       password2: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -47,6 +46,7 @@ export class ClientsignupComponent implements OnInit {
     this.submitted = true;
 
     if (this.registerForm.invalid) {
+      console.log('Is Invalid');
       return null;
     }
 
@@ -55,7 +55,7 @@ export class ClientsignupComponent implements OnInit {
       .register(
         this.form.username.value,
         this.form.email.value,
-        this.form.user_type.value,
+        '2',
         this.form.password.value
       )
       .subscribe(
