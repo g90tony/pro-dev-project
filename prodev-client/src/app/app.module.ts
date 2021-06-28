@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { StudioclientpageComponent } from './studioclientpage/studioclientpage.component';
 import { ProfileeditpageComponent } from './profileeditpage/profileeditpage.component';
 import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
+import { ChartroomComponent } from './chartroom/chartroom.component';
+import { StudiodashboardComponent } from './studiodashboard/studiodashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofil
     StudioclientpageComponent,
     ProfileeditpageComponent,
     ClientviewprofileComponent,
+    ChartroomComponent,
+    StudiodashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,15 @@ import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofil
       {
         path: "view_profile",
         component: ClientviewprofileComponent
+      },
+      
+       {
+        path: "dashboard",
+        component: StudiodashboardComponent
+      },
+       {
+        path: "chart_room",
+        component: ChartroomComponent
       },
 
     ])
