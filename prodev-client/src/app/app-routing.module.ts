@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ClientEditProfileComponent } from './pages/client/clienteditprofile/clienteditprofile.component';
-import { ClientloginComponent } from './pages/client/clientlogin/clientlogin.component';
-import { ClientsignupComponent } from './pages/client/clientsignup/clientsignup.component';
-import { ClientviewprofileComponent } from './pages/client/clientviewprofile/clientviewprofile.component';
+import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
+import { ClientloginComponent } from './pages/client/login/clientlogin.component';
+import { ClientsignupComponent } from './pages/client/signup/clientsignup.component';
+import { ClientviewprofileComponent } from './pages/client/viewprofile/clientviewprofile.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { StudioclientpageComponent } from './pages/studio/studioclientpage/studioclientpage.component';
 import { StudiodashboardComponent } from './pages/studio/studiodashboard/studiodashboard.component';

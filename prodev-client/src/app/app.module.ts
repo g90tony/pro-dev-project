@@ -7,10 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { LandingComponent } from './pages/landing/landing.component';
-import { ClientsignupComponent } from './pages/client/clientsignup/clientsignup.component';
-import { ClientloginComponent } from './pages/client/clientlogin/clientlogin.component';
-import { ClientviewprofileComponent } from './pages/client/clientviewprofile/clientviewprofile.component';
-import { ClientEditProfileComponent } from './pages/client/clienteditprofile/clienteditprofile.component';
+import { ClientsignupComponent } from './pages/client/signup/clientsignup.component';
+import { ClientloginComponent } from './pages/client/login/clientlogin.component';
+import { ClientviewprofileComponent } from './pages/client/viewprofile/clientviewprofile.component';
+import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
 
 import { StudiosignupComponent } from './pages/studio/studiosignup/studiosignup.component';
 import { StudiologinComponent } from './pages/studio/studiologin/studiologin.component';
