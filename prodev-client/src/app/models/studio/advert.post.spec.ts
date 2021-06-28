@@ -1,4 +1,4 @@
-import { AdvertPost } from './advert-post';
+import { AdvertPost } from './advert.post';
 
 describe('AdvertPost', () => {
   it('should create an instance', () => {
