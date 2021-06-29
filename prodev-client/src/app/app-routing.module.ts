@@ -14,14 +14,19 @@ import { StudiodashboardComponent } from './pages/studio/dashboard/studiodashboa
 import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
 import { StudiologinComponent } from './pages/studio/login/studiologin.component';
 import { StudiosignupComponent } from './pages/studio/signup/studiosignup.component';
+import { ClientCreateProfileComponent } from './pages/client/createprofile/clientcreateprofile.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   // client routes
   { path: 'client/signup', component: ClientsignupComponent },
   { path: 'client/login', component: ClientloginComponent },
-  { path: 'client/view-studio/:id', component: ClientViewStudioComponent },
-  { path: 'client/view-studio/:id', component: ClientEditProfileComponent },
+  { path: 'client/profile/studio/:id/', component: ClientViewStudioComponent },
+  { path: 'client/profile/:id/edit', component: ClientEditProfileComponent },
+  {
+    path: 'client/profile/:id/create',
+    component: ClientCreateProfileComponent,
+  },
   { path: 'client/view-studio/:id/reviews', component: ReviewComponent },
   // studio routes
   { path: 'studio/signup', component: StudiosignupComponent },
