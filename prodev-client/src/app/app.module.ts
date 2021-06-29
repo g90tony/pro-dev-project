@@ -26,6 +26,7 @@ import { ReviewFormComponent } from './components/review-form/review-form.compon
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/errors.interceptor';
+import { ClientCreateProfileComponent } from './pages/client/createprofile/clientcreateprofile.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,9 @@ import { ErrorInterceptor } from './helpers/errors.interceptor';
 
     ClientsignupComponent,
     ClientloginComponent,
-    ClientViewStudioComponent,
+    ClientCreateProfileComponent,
     ClientEditProfileComponent,
+    ClientViewStudioComponent,
 
     StudiosignupComponent,
     StudiologinComponent,
