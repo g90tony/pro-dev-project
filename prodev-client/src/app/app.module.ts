@@ -17,6 +17,7 @@ import { StudioEditProfileComponent } from './studioeditprofile/studioeditprofil
 import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
 import { BookingComponent } from './booking/booking.component';
 import { ReviewComponent } from './review/review.component';
+import { ReviewFormComponent } from './review/review-form/review-form.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ReviewComponent } from './review/review.component';
     SearchComponent,
     BookingComponent,
     ReviewComponent,
+    ReviewFormComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, FormsModule],
   providers: [],
