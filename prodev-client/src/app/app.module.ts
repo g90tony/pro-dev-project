@@ -16,6 +16,7 @@ import { StudioclientpageComponent } from './studioclientpage/studioclientpage.c
 import { StudioEditProfileComponent } from './studioeditprofile/studioeditprofile.component';
 import { ClientviewprofileComponent } from './clientviewprofile/clientviewprofile.component';
 import { BookingComponent } from './booking/booking.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BookingComponent } from './booking/booking.component';
     ClientviewprofileComponent,
     SearchComponent,
     BookingComponent,
+    ReviewComponent,
   ],
   imports: [BrowserModule, RouterModule, AppRoutingModule, FormsModule],
   providers: [],
