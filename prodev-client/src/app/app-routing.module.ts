@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'client/profile/studio/:id/', component: ClientViewStudioComponent },
   { path: 'client/profile/:id/edit', component: ClientEditProfileComponent },
   {
-    path: 'client/profile/:id/create',
+    path: 'client/profile/create',
     component: ClientCreateProfileComponent,
   },
   { path: 'client/view-studio/:id/reviews', component: ReviewComponent },
