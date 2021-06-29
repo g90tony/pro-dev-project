@@ -4,11 +4,11 @@ import { ClientProfileService } from 'src/app/services/client/profile.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
-  selector: 'app-clientviewprofile',
-  templateUrl: './clientviewprofile.component.html',
-  styleUrls: ['./clientviewprofile.component.css'],
+  selector: 'app-viewstudio',
+  templateUrl: './viewstudio.component.html',
+  styleUrls: ['./viewstudio.component.css'],
 })
-export class ClientviewprofileComponent implements OnInit {
+export class ClientViewStudioComponent implements OnInit {
   user_id;
 
   constructor(
