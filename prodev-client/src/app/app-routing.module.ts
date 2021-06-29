@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ReviewComponent } from './pages/review/review.component';
 
 import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
 import { ClientloginComponent } from './pages/client/login/clientlogin.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'client/login', component: ClientloginComponent },
   { path: 'client/view-studio/:id', component: ClientviewprofileComponent },
   { path: 'client/view-studio/:id', component: ClientEditProfileComponent },
+  { path: 'client/view-studio/:id/reviews', component: ReviewComponent },
   // studio routes
   { path: 'studio/signup', component: StudiosignupComponent },
   { path: 'studio/login', component: StudiologinComponent },

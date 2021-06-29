@@ -21,8 +21,8 @@ import { StudioEditProfileComponent } from './pages/studio/editprofile/studioedi
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { BookingComponent } from './components/booking/booking.component';
-import { ReviewComponent } from './review/review.component';
-import { ReviewFormComponent } from './review/review-form/review-form.component';
+import { ReviewComponent } from './pages/review/review.component';
+import { ReviewFormComponent } from './components/review-form/review-form.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/errors.interceptor';
