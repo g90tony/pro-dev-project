@@ -15,7 +15,7 @@ import { ClientEditProfileComponent } from './pages/client/editprofile/clientedi
 import { StudiosignupComponent } from './pages/studio/signup/studiosignup.component';
 import { StudiologinComponent } from './pages/studio/login/studiologin.component';
 import { StudiosignuppageComponent } from './pages/studio/signuppage/studiosignuppage.component';
-import { StudioclientpageComponent } from './pages/studio/clientpage/studioclientpage.component';
+import { StudioCreateProfileComponent } from './pages/studio/createprofile/studiocreateprofile.component';
 import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -40,7 +40,7 @@ import { ErrorInterceptor } from './helpers/errors.interceptor';
     StudiosignupComponent,
     StudiologinComponent,
     StudiosignuppageComponent,
-    StudioclientpageComponent,
+    StudioCreateProfileComponent,
     StudioEditProfileComponent,
 
     NavbarComponent,

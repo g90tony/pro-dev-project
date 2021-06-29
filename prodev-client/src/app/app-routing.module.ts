@@ -9,7 +9,7 @@ import { ClientViewStudioComponent } from './pages/client/viewstudio/viewstudio.
 
 import { LandingComponent } from './pages/landing/landing.component';
 
-import { StudioclientpageComponent } from './pages/studio/clientpage/studioclientpage.component';
+import { StudioCreateProfileComponent } from './pages/studio/createprofile/studiocreateprofile.component';
 import { StudiodashboardComponent } from './pages/studio/dashboard/studiodashboard.component';
 import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
 import { StudiologinComponent } from './pages/studio/login/studiologin.component';
@@ -31,7 +31,7 @@ const routes: Routes = [
     component: StudiodashboardComponent,
   },
   { path: 'studio/profile/edit', component: StudioEditProfileComponent },
-  { path: 'studio/profile/create', component: StudioclientpageComponent },
+  { path: 'studio/profile/create', component: StudioCreateProfileComponent },
 
   { path: '**', redirectTo: '/' },
 ];
