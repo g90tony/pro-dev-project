@@ -22,19 +22,6 @@
         [ngClass]="{ 'is-invalid': submitted && form.author.errors }"
       />
     </div>
-
-    <div class="form-group">
-      <input
-        type="date"
-        id="date"
-        class="form-control item"
-        formControlName="date"
-        [ngClass]="{ 'is-invalid': submitted && form.date.errors }"
-      />
-      <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
-        <p>Date is required</p>
-      </div>
-    </div>
     <button type="submit" class="btn btn-block" [disabled]="loading">
       <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span
       >Add Review

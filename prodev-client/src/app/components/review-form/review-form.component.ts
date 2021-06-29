@@ -34,8 +34,8 @@ export class ReviewFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.reviewForm = this.formBuilder.group({
-      username: ['', Validators.required, Validators.pattern('^[a-zA-Z3*$')],
-      password: ['', Validators.required, Validators.minLength(6)],
+      text: ['', Validators.required, Validators.minLength(10)],
+      author: ['', Validators.required],
     });
 
     this.returnURI = this.route.snapshot.queryParams['returnUrl'] || '/';
