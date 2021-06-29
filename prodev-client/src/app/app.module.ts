@@ -9,7 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ClientsignupComponent } from './pages/client/signup/clientsignup.component';
 import { ClientloginComponent } from './pages/client/login/clientlogin.component';
-import { ClientviewprofileComponent } from './pages/client/viewprofile/clientviewprofile.component';
+import { ClientViewStudioComponent } from './pages/client/viewstudio/viewstudio.component';
 import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
 
 import { StudiosignupComponent } from './pages/studio/signup/studiosignup.component';
@@ -34,7 +34,7 @@ import { ErrorInterceptor } from './helpers/errors.interceptor';
 
     ClientsignupComponent,
     ClientloginComponent,
-    ClientviewprofileComponent,
+    ClientViewStudioComponent,
     ClientEditProfileComponent,
 
     StudiosignupComponent,

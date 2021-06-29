@@ -5,7 +5,7 @@ import { ReviewComponent } from './pages/review/review.component';
 import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
 import { ClientloginComponent } from './pages/client/login/clientlogin.component';
 import { ClientsignupComponent } from './pages/client/signup/clientsignup.component';
-import { ClientviewprofileComponent } from './pages/client/viewprofile/clientviewprofile.component';
+import { ClientViewStudioComponent } from './pages/client/viewstudio/viewstudio.component';
 
 import { LandingComponent } from './pages/landing/landing.component';
 
@@ -20,7 +20,7 @@ const routes: Routes = [
   // client routes
   { path: 'client/signup', component: ClientsignupComponent },
   { path: 'client/login', component: ClientloginComponent },
-  { path: 'client/view-studio/:id', component: ClientviewprofileComponent },
+  { path: 'client/view-studio/:id', component: ClientViewStudioComponent },
   { path: 'client/view-studio/:id', component: ClientEditProfileComponent },
   { path: 'client/view-studio/:id/reviews', component: ReviewComponent },
   // studio routes
