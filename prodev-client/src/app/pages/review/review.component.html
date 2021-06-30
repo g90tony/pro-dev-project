@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <app-review-form
+      class="col-md-4"
+      (addReview)="addNewReview($event)"
+    ></app-review-form>
+    <div class="col-md-8 mx-auto bq">
+      <div
+        class="blockreview blockreview-custom p-5 shadow rounded"
+        *ngFor="let review of reviews; let i = index"
+      >
+        <div class="blockreview-custom-icon shadow-sm">
+          <i class="fa fa-review-left text-white"></i>
+        </div>
+        <p class="mb-0 mt-2 font-italic">"{{ review.text }}."</p>
+        <footer class="blockreview-footer pt-4 mt-4 border-top">
+          Review by
+          <cite title="review author">{{ review.author }}</cite>
+          <br />
+          <cite title="review date">{{ review.date | date }}</cite>
+        </footer>
+        <!-- <app-review-vote></app-review-vote> -->
+      </div>
+    </div>
+  </div>
+</div>

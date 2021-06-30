@@ -1,0 +1,71 @@
+nav {
+  background-color: cadetblue;
+  margin-bottom: 30px;
+}
+
+#navbarSupportedContent-555 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-right: 5em;
+}
+
+.search-header {
+  font-size: 28px !important;
+  font-weight: 800;
+  color: cadetblue;
+}
+
+.search-body {
+  font-weight: 700;
+}
+
+.studio-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border: cadetblue solid 1px;
+  margin: 10px 20px;
+
+  width: 300px;
+}
+
+.studio-logo-container {
+  width: auto;
+  height: 80%;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.studio-logo {
+  widows: 65px;
+  height: 60px;
+  border-radius: 100%;
+
+  object-fit: cover;
+}
+
+.studio-details {
+  width: auto;
+  text-align: start !important;
+}
+
+.studio-name {
+  color: cadetblue;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.studio-email {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.studio-location {
+  font-weight: 700;
+  font-size: 14px;
+}
