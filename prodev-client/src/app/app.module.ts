@@ -14,7 +14,7 @@ import { ClientEditProfileComponent } from './pages/client/editprofile/clientedi
 
 import { StudiosignupComponent } from './pages/studio/signup/studiosignup.component';
 import { StudiologinComponent } from './pages/studio/login/studiologin.component';
-import { StudiosignuppageComponent } from './pages/studio/signuppage/studiosignuppage.component';
+import { StudioCreateAdvertComponent } from './pages/studio/createadvert/studiocreateadvert.component';
 import { StudioCreateProfileComponent } from './pages/studio/createprofile/studiocreateprofile.component';
 import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
 
@@ -27,6 +27,9 @@ import { ReviewFormComponent } from './components/review-form/review-form.compon
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/errors.interceptor';
 import { ClientCreateProfileComponent } from './pages/client/createprofile/clientcreateprofile.component';
+import { StudiocreatepostComponent } from './pages/studio/studiocreatepost/studiocreatepost.component';
+import { ClientpostfeedComponent } from './pages/client/clientpostfeed/clientpostfeed.component';
+import { ClientsearchresultsComponent } from './pages/client/clientsearchresults/clientsearchresults.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,7 @@ import { ClientCreateProfileComponent } from './pages/client/createprofile/clien
 
     StudiosignupComponent,
     StudiologinComponent,
-    StudiosignuppageComponent,
+    StudioCreateAdvertComponent,
     StudioCreateProfileComponent,
     StudioEditProfileComponent,
 
@@ -50,6 +53,9 @@ import { ClientCreateProfileComponent } from './pages/client/createprofile/clien
     BookingComponent,
     ReviewComponent,
     ReviewFormComponent,
+    StudiocreatepostComponent,
+    ClientpostfeedComponent,
+    ClientsearchresultsComponent,
   ],
   imports: [
     BrowserModule,
