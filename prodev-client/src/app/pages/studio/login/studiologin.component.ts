@@ -30,7 +30,7 @@ export class StudiologinComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required, Validators.minLength(6)],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     this.returnURI = this.route.snapshot.queryParams['returnUrl'] || '/';

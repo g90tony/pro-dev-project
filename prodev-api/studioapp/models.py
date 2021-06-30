@@ -15,7 +15,7 @@ import jwt
 # It is a requirement by django when creating a custom user model
 # the custom user model is CreativeUser
 class UserManager(BaseUserManager):
-    def create_user(self, username, email, password=None):
+    def create_user(self, username, email, user_type, password=None):
         """Create and return a `User` with an email, username and password."""
         if username is None:
             raise TypeError("Users must have a username.")
@@ -23,7 +23,10 @@ class UserManager(BaseUserManager):
         if email is None:
             raise TypeError("Users must have an email address.")
 
-        user = self.model(username=username, email=self.normalize_email(email))
+        if user_type is None:
+            raise TypeError("Users must have an email address.")
+
+        user = self.model(username=username, user_type=user_type, email=self.normalize_email(email))
         user.set_password(password)
         user.save()
 
@@ -90,10 +93,10 @@ class User(PermissionsMixin, AbstractBaseUser):
         """
         dt = datetime.now() + timedelta(days=60)
 
-        token = jwt.encode({
-            'id': self.pk,
-            'exp': dt.utcfromtimestamp(dt.timestamp())
-        }, settings.SECRET_KEY, algorithm='HS256')
+
+        token = jwt.encode(
+            {"id": self.pk, "exp": dt.utcfromtimestamp(dt.timestamp())}, settings.SECRET_KEY, algorithm="HS256"
+        )
         return token
 
 

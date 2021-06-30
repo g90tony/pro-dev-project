@@ -250,6 +250,5 @@ Studio Sesh exists to connect the music artists to music production studios and 
 - [@Ether Kirui](https://github.com/Eccie-K)
 - [@David Msyoka](https://github.com/Msyoka)
 - [@Joshua Kimani](https://github.com/JKimani77)
-- [@Mark Kariuki](https://github.com/markkariuki)
 - [@Michelle Wangechik](https://github.com/wangechimk)
 - [@Melissa Wangui](https://github.com/melissa-koi)

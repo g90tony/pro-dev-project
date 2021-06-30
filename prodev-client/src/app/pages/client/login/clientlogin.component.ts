@@ -29,8 +29,8 @@ export class ClientloginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required, Validators.pattern('^[a-zA-Z3*$')],
-      password: ['', Validators.required, Validators.minLength(6)],
+      email: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     this.returnURI = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -49,7 +49,7 @@ export class ClientloginComponent implements OnInit {
 
     this.loading = true;
     this.authenticator
-      .login(this.form.username.value, this.form.password.value)
+      .login(this.form.email.value, this.form.password.value)
       .subscribe(
         (data) => {
           console.log(data);
