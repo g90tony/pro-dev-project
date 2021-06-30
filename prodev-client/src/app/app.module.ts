@@ -9,21 +9,27 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LandingComponent } from './pages/landing/landing.component';
 import { ClientsignupComponent } from './pages/client/signup/clientsignup.component';
 import { ClientloginComponent } from './pages/client/login/clientlogin.component';
-import { ClientviewprofileComponent } from './pages/client/viewprofile/clientviewprofile.component';
+import { ClientViewStudioComponent } from './pages/client/viewstudio/viewstudio.component';
 import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
 
 import { StudiosignupComponent } from './pages/studio/signup/studiosignup.component';
 import { StudiologinComponent } from './pages/studio/login/studiologin.component';
-import { StudiosignuppageComponent } from './pages/studio/signuppage/studiosignuppage.component';
-import { StudioclientpageComponent } from './pages/studio/clientpage/studioclientpage.component';
+import { StudioCreateAdvertComponent } from './pages/studio/createadvert/studiocreateadvert.component';
+import { StudioCreateProfileComponent } from './pages/studio/createprofile/studiocreateprofile.component';
 import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { BookingComponent } from './components/booking/booking.component';
+import { ReviewComponent } from './pages/review/review.component';
+import { ReviewFormComponent } from './components/review-form/review-form.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/errors.interceptor';
+import { ClientCreateProfileComponent } from './pages/client/createprofile/clientcreateprofile.component';
+import { StudiocreatepostComponent } from './pages/studio/studiocreatepost/studiocreatepost.component';
+import { ClientpostfeedComponent } from './pages/client/clientpostfeed/clientpostfeed.component';
+import { ClientsearchresultsComponent } from './pages/client/clientsearchresults/clientsearchresults.component';
 
 @NgModule({
   declarations: [
@@ -32,18 +38,24 @@ import { ErrorInterceptor } from './helpers/errors.interceptor';
 
     ClientsignupComponent,
     ClientloginComponent,
-    ClientviewprofileComponent,
+    ClientCreateProfileComponent,
     ClientEditProfileComponent,
+    ClientViewStudioComponent,
 
     StudiosignupComponent,
     StudiologinComponent,
-    StudiosignuppageComponent,
-    StudioclientpageComponent,
+    StudioCreateAdvertComponent,
+    StudioCreateProfileComponent,
     StudioEditProfileComponent,
 
     NavbarComponent,
     SearchComponent,
     BookingComponent,
+    ReviewComponent,
+    ReviewFormComponent,
+    StudiocreatepostComponent,
+    ClientpostfeedComponent,
+    ClientsearchresultsComponent,
   ],
   imports: [
     BrowserModule,

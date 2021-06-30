@@ -1,7 +1,7 @@
-import { Profile } from './profile';
+import { ClientProfile } from './profile';
 
 describe('Profile', () => {
   it('should create an instance', () => {
-    expect(new Profile()).toBeTruthy();
+    expect(new ClientProfile()).toBeTruthy();
   });
 });

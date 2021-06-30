@@ -204,6 +204,7 @@ class CreativeProfile(models.Model):
 class Review(models.Model):
     message = models.CharField(max_length=100)
     creative_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True)
 
     def save_review(self):
         self.save()

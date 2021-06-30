@@ -1,0 +1,30 @@
+<div class="container submit-form">
+  <h3 class="brainy">Make Review 💬</h3>
+  <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <textarea
+        id="message"
+        rows="8"
+        placeholder="Review.."
+        class="form-control item"
+        formControlName="text"
+        [ngClass]="{ 'is-invalid': submitted && form.text.errors }"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control item"
+        id="author"
+        placeholder="Author"
+        formControlName="author"
+        [ngClass]="{ 'is-invalid': submitted && form.author.errors }"
+      />
+    </div>
+    <button type="submit" class="btn btn-block" [disabled]="loading">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span
+      >Add Review
+    </button>
+  </form>
+</div>
