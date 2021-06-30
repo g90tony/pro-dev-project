@@ -30,6 +30,7 @@ import { ClientCreateProfileComponent } from './pages/client/createprofile/clien
 import { StudiocreatepostComponent } from './pages/studio/studiocreatepost/studiocreatepost.component';
 import { ClientpostfeedComponent } from './pages/client/clientpostfeed/clientpostfeed.component';
 import { ClientsearchresultsComponent } from './pages/client/clientsearchresults/clientsearchresults.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ClientsearchresultsComponent } from './pages/client/clientsearchresults
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
