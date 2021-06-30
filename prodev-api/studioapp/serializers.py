@@ -50,7 +50,7 @@ class CreativeProfileSerializer(serializers.ModelSerializer):
     creative_id = UserSerializer
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['email', 'username', 'password', 'user_type' ,'token']
 
 class ReviewSerializer(serializers.ModelSerializer):
     creative_id = CreativeUserSerializer
@@ -95,7 +95,7 @@ class LoginSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255, read_only=True)
     password = serializers.CharField(max_length=128, write_only=True)
     token = serializers.CharField(max_length=255, read_only=True)
-    user_type = serializers.IntegerField(max_length=255, read_only=True)
+    user_type = serializers.IntegerField(read_only=True)
     
     def validate(self, data):
         # The `validate` method is where we make sure that the current
