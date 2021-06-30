@@ -291,3 +291,12 @@ class CreateReview(APIView):
         
         else:
             return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
+
+
+class StudioUserList(APIView):
+    serializer_class = UserSerializer
+
+    def get(self, request, format=None):
+        SUser = StudioProfile.search_by_service(search_term=StudioProfile.service_provided)
+        serializers = self.serializer_class(SUser, many=True)
+        return Response(serializers.data)
