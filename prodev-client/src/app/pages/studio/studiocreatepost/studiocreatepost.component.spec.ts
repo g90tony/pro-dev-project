@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StudiosignuppageComponent } from './studiosignuppage.component';
+import { StudiocreatepostComponent } from './studiocreatepost.component';
 
-describe('StudiosignuppageComponent', () => {
-  let component: StudiosignuppageComponent;
-  let fixture: ComponentFixture<StudiosignuppageComponent>;
+describe('StudiocreatepostComponent', () => {
+  let component: StudiocreatepostComponent;
+  let fixture: ComponentFixture<StudiocreatepostComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StudiosignuppageComponent ]
+      declarations: [ StudiocreatepostComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StudiosignuppageComponent);
+    fixture = TestBed.createComponent(StudiocreatepostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
