@@ -154,17 +154,24 @@ class Services(models.Model):
     def __str__(self):
         return self.name
 
+    
+
 class StudioProfile(models.Model):
     studio_id = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
     description = models.CharField(max_length=100)
     location = models.CharField(max_length=30)
     
-    #service_provided = models.ForeignKey(Services,on_delete=models.CASCADE)
+    service_provided = models.ForeignKey(Services,on_delete=models.CASCADE)
     #advert_photos = models.ForeignKey(AdvertPost,on_delete=models.CASCADE)
     logo = models.ImageField(upload_to="images")
 
     #rates = models.DecimalField(decimal_places=2, max_digits=8)
+    
+    def search_by_service(cls, search_term):
+        servicessss = cls.objects.filter(service_provided__icontains=search_term)
+        return servicessss
 '''
+
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_studio_profile(sender, instance, created, **kwargs):
         if created:
@@ -178,6 +185,7 @@ class StudioProfile(models.Model):
         return self.studio_id.username
 
 '''
+    
 
 
 
