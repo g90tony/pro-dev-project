@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./studiosignup.component.css'],
 })
 export class StudiosignupComponent implements OnInit {
-  loginForm: FormGroup;
+  registerFrom: FormGroup;
 
   loading = false;
   submitted = false;
@@ -28,24 +28,24 @@ export class StudiosignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required, Validators.pattern('^[a-zA-Z3*$')],
+    this.registerFrom = this.formBuilder.group({
+      username: ['', Validators.required],
       email: ['', Validators.required],
-      user_type: ['', Validators.required, Validators.maxLength(1)],
-      password: ['', Validators.required, Validators.minLength(6)],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      password2: ['', [Validators.required, Validators.minLength(6)]],
     });
 
     this.returnURI = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get form() {
-    return this.loginForm.controls;
+    return this.registerFrom.controls;
   }
 
   onSubmit() {
     this.submitted = true;
 
-    if (this.loginForm.invalid) {
+    if (this.registerFrom.invalid) {
       return null;
     }
 
