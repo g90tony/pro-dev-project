@@ -29,7 +29,7 @@ export class ClientloginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
@@ -49,7 +49,7 @@ export class ClientloginComponent implements OnInit {
 
     this.loading = true;
     this.authenticator
-      .login(this.form.username.value, this.form.password.value)
+      .login(this.form.email.value, this.form.password.value)
       .subscribe(
         (data) => {
           console.log(data);

@@ -23,7 +23,7 @@ export class ClientsignupComponent implements OnInit {
     private authenticator: AuthenticationService
   ) {
     if (this.authenticator.currentUserValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/client/feed']);
     }
   }
 
@@ -35,7 +35,8 @@ export class ClientsignupComponent implements OnInit {
       password2: ['', [Validators.required, Validators.minLength(6)]],
     });
 
-    this.returnURI = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnURI =
+      this.route.snapshot.queryParams['returnUrl'] || '/client/feed';
   }
 
   get form() {
@@ -55,7 +56,7 @@ export class ClientsignupComponent implements OnInit {
       .register(
         this.form.username.value,
         this.form.email.value,
-        '2',
+        2,
         this.form.password.value
       )
       .subscribe(

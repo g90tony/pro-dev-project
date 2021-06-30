@@ -25,15 +25,17 @@ export class AuthenticationService {
   register(
     username: string,
     email: string,
-    user_type: string,
+    user_type: number,
     password: string
   ) {
     return this.http
-      .post<User>(`${environment.api_uri}/api/user/register`, {
-        username,
-        email,
-        user_type,
-        password,
+      .post<User>(`${environment.api_uri}/api/user/sign-up`, {
+        user: {
+          username,
+          email,
+          user_type,
+          password,
+        },
       })
       .pipe(
         map((user) => {
@@ -45,11 +47,10 @@ export class AuthenticationService {
       );
   }
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     return this.http
-      .post<User>(`${environment.api_uri}/api/user/login`, {
-        username,
-        password,
+      .post<User>(`${environment.api_uri}/api/user/sign-in`, {
+        user: { email, password },
       })
       .pipe(
         map((user) => {
