@@ -300,3 +300,23 @@ class StudioUserList(APIView):
         SUser = StudioProfile.search_by_service(search_term=StudioProfile.service_provided)
         serializers = self.serializer_class(SUser, many=True)
         return Response(serializers.data)
+        
+    def post(self, request, format=None):
+        serializers = self.serializer_class(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            SUser = serializers.data
+            response = {
+                "data": {
+                    "StudioUser": dict(SUser),
+                    "status": "success",
+                    "message": "Studio User created successfully",
+                }
+            }
+            return Response(response, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, format=None):
+        SUser = StudioProfile.objects.all()
+        serializers = self.serializer_class(SUser, many=True)
+        return Response(serializers.data)
