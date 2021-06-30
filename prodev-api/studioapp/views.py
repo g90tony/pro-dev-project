@@ -2,6 +2,7 @@ from os import stat
 from django.http.response import Http404
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.http import HttpResponse, JsonResponse
 from rest_framework import serializers, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -58,7 +59,7 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     def retrieve(self, request, *args, **kwargs):
         serializer = self.serializer_class(request.user)
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK)
 
     def update(self, request, *args, **kwargs):
         serializer_data = request.data.get('user', {})
@@ -68,7 +69,7 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK)
 
 
 
@@ -86,7 +87,7 @@ class ManyCreativeUsers(APIView):
         
         serializers = CreativeUserSerializer(all_creative_users)
         
-        return Response(serializers.data)
+        return JsonResponse(serializers.data)
     
     def post(self, request, format=None):
         
@@ -95,10 +96,10 @@ class ManyCreativeUsers(APIView):
         if serializer.is_valid():
             serializer.save()
             
-            return Response( serializer.data , status=status.HTTP_201_CREATED)    
+            return JsonResponse( serializer.data , status=status.HTTP_201_CREATED)    
         
         else:
-            return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
         
 '''
     
@@ -123,7 +124,7 @@ class SingleCreativeUsers(APIView):
         
         serializer = CreativeUserSerializer(user_obj)
         
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK)
     
     def put(self, request, user_id, format=None):
         
@@ -146,9 +147,9 @@ class SingleCreativeUsers(APIView):
         if serializer.is_valid():
             serializer.save()
             
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
         else: 
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)     
+            return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)     
         
     def delete(self, request, user_id, format=None):
         
@@ -157,7 +158,7 @@ class SingleCreativeUsers(APIView):
         try: 
             user_obj.delete()
             
-            return Response(status=status.HTTP_200_OK)
+            return JsonResponse(status=status.HTTP_200_OK)
         
         except:
             return Http404  
@@ -188,7 +189,7 @@ class CreativeProfile(APIView):
         
         serializer = CreativeProfileSerializer(user_profile)
         
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.data, status=status.HTTP_200_OK)
         
     def post(self, request, user_id, format=None):
         
@@ -202,10 +203,10 @@ class CreativeProfile(APIView):
         if serializer.is_valid():
             serializer.save()
             
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
     def patch(self, request, user_id, format=None):
         
@@ -228,10 +229,10 @@ class CreativeProfile(APIView):
         if serializer.is_valid():
             serializer.save()
             
-            return Response(serializer.data, satus= status.HTTP_200_OK)
+            return JsonResponse(serializer.data, satus= status.HTTP_200_OK)
         
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
     def delete(self, request, user_id, format=None ):
         
@@ -263,10 +264,10 @@ class CreateBooking(APIView):
            
            serializer.save()
            
-           return Response(serializer.data, status=status.HTTP_201_CREATED)
+           return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
        
        else:
-           return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
+           return JsonResponsee(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
        
 
 '''
@@ -286,7 +287,7 @@ class CreateReview(APIView):
         if serializer.is_valid():
             serializer.save()
             
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
+            return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
