@@ -6,6 +6,9 @@ import { ClientEditProfileComponent } from './pages/client/editprofile/clientedi
 import { ClientloginComponent } from './pages/client/login/clientlogin.component';
 import { ClientsignupComponent } from './pages/client/signup/clientsignup.component';
 import { ClientViewStudioComponent } from './pages/client/viewstudio/viewstudio.component';
+import { ClientCreateProfileComponent } from './pages/client/createprofile/clientcreateprofile.component';
+import { ClientpostfeedComponent } from './pages/client/clientpostfeed/clientpostfeed.component';
+import { ClientsearchresultsComponent } from './pages/client/clientsearchresults/clientsearchresults.component';
 
 import { LandingComponent } from './pages/landing/landing.component';
 
@@ -14,29 +17,36 @@ import { StudiodashboardComponent } from './pages/studio/dashboard/studiodashboa
 import { StudioEditProfileComponent } from './pages/studio/editprofile/studioeditprofile.component';
 import { StudiologinComponent } from './pages/studio/login/studiologin.component';
 import { StudiosignupComponent } from './pages/studio/signup/studiosignup.component';
-import { ClientCreateProfileComponent } from './pages/client/createprofile/clientcreateprofile.component';
+import { StudioCreateAdvertComponent } from './pages/studio/createadvert/studiocreateadvert.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   // client routes
   { path: 'client/signup', component: ClientsignupComponent },
   { path: 'client/login', component: ClientloginComponent },
-  { path: 'client/profile/studio/:id/', component: ClientViewStudioComponent },
-  { path: 'client/profile/:id/edit', component: ClientEditProfileComponent },
+  { path: 'client/feed', component: ClientpostfeedComponent },
+  {
+    path: 'client/search/:search_query',
+    component: ClientsearchresultsComponent,
+  },
+  { path: 'client/profile/edit', component: ClientEditProfileComponent },
   {
     path: 'client/profile/create',
     component: ClientCreateProfileComponent,
   },
-  { path: 'client/view-studio/:id/reviews', component: ReviewComponent },
+  { path: 'client/profile/studio/:id/', component: ClientViewStudioComponent },
+  { path: 'client/profile/studio/:id/reviews', component: ReviewComponent },
+
   // studio routes
   { path: 'studio/signup', component: StudiosignupComponent },
   { path: 'studio/login', component: StudiologinComponent },
   {
-    path: 'studio/<int:user_id>/dashboard',
+    path: 'studio/dashboard',
     component: StudiodashboardComponent,
   },
   { path: 'studio/profile/edit', component: StudioEditProfileComponent },
   { path: 'studio/profile/create', component: StudioCreateProfileComponent },
+  { path: 'studio/advert/create', component: StudioCreateAdvertComponent },
 
   { path: '**', redirectTo: '/' },
 ];
