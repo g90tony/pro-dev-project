@@ -17,7 +17,6 @@ import django_heroku
 import dj_database_url
 import os
 
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,7 +32,7 @@ SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -48,6 +47,7 @@ INSTALLED_APPS = [
     "studioapp",
     "rest_framework",
     "corsheaders",
+    "django_filters"
 ]
 
 AUTH_USER_MODEL = "studioapp.User"
@@ -65,7 +65,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
 ]
 
-ROOT_URLCONF = "core.urls"
+ROOT_URLCONF = "studioapp.urls"
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = (
     "DELETE",
@@ -75,18 +75,22 @@ CORS_ALLOW_METHODS = (
     "POST",
     "PUT",
 )
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-    "Access-Control-Allow-Origin",
-]
+
+# CORS_ALLOW_HEADERS = [
+#     "accept",
+#     "accept-encoding",
+#     "authorization",
+#     "content-type",
+#     "dnt",
+#     "origin",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+#     "Access-Control-Allow-Origin",
+# ]
+
+CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
+CORS_ALLOW_CREDENTIALS = True
 
 TEMPLATES = [
     {
@@ -107,15 +111,16 @@ TEMPLATES = [
 WSGI_APPLICATION = "core.wsgi.application"
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
-    ],
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        #'rest_framework_simplejwt.authentication.JWTAuthentication',
-        "prodev-api.studioapp.backends.JWTAuthentication"
-    ],
+#     # Use Django's standard `django.contrib.auth` permissions,
+#     # or allow read-only access for unauthenticated users.
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
+#     ],
+#     "DEFAULT_AUTHENTICATION_CLASSES": [
+#         #'rest_framework_simplejwt.authentication.JWTAuthentication',
+#         "studioapp.backends.JWTAuthentication"
+#     ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 # Database
@@ -128,6 +133,8 @@ if config("MODE") == "dev":
             "NAME": config("DB_NAME"),
             "USER": config("DB_USER"),
             "PASSWORD": config("DB_PASSWORD"),
+            'HOST': config('DB_HOST'),
+            'PORT': '',
         }
     }
 

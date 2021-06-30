@@ -8,10 +8,12 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 
-from .models import AdvertPost, Booking, CreativeProfile, CreativeUser, Review, Services, StudioProfile, StudioUser
-from .serializers import AdvertPostSerializer, BookingSerializer, CreativeProfileSerializer, CreativeUserSerializer, ReviewSerializer,  ServicesSerializer, StudioProfileSerializer, StudioUserSerializer, RegistrationSerializer, LoginSerializer, UserSerializer
+from .models import AdvertPost, Booking, CreativeProfile, Review, Services, StudioProfile, User
+from .serializers import *
 from .renderers import UserJSONRenderer
 from rest_framework.generics import RetrieveUpdateAPIView
+from django_filters.rest_framework import DjangoFilterBackend
+
 # Create your views here.
 
 class RegistrationAPIView(APIView):
@@ -109,7 +111,7 @@ class SingleCreativeUsers(APIView):
     permission_classes = (IsAuthenticated)
     def get_user_object(self, pk):
         try:
-            return CreativeUser.objects.get(id=pk)
+            return User.objects.get(id=pk)
         
         except:
             Http404
@@ -288,72 +290,72 @@ class CreateReview(APIView):
 
 
 #STUDIO VIEWS
-
+  #No longer in use ==> using single user view
 #Studio User View
 #Update and Delete individual entries
-class IndividualStudioUser(APIView):
-    serializer_class=StudioUserSerializer
-    def get_SUser(self, pk):
-        try:
-            return StudioUser.objects.get(pk=pk)
-        except StudioUser.DoesNotExist:
-            return Http404()
+# class IndividualStudioUser(APIView):
+#     serializer_class=UserSerializer
+#     def get_SUser(self, pk):
+#         try:
+#             return UserSerializer.objects.get(pk=pk)
+#         except UserSerializer.DoesNotExist:
+#             return Http404()
 
-    def get(self, request,pk,format=None):
-        SUser = self.get_SUser(pk)
-        serializers = self.serializer_class(SUser)
-        return Response(serializers.data)
+#     def get(self, request,pk,format=None):
+#         SUser = self.get_SUser(pk)
+#         serializers = self.serializer_class(SUser)
+#         return Response(serializers.data)
 
-    def put(self, request, pk, format=None):
-        SUser = self.get_SUser(pk)
-        serializers = self.serializer_class(SUser, request.data)
-        if serializers.is_valid():
-            serializers.save()
-            SUser_list = serializers.data
-            response = {
-                'data': {
-                    'StudioUser': dict(SUser_list),
-                    'status': 'success',
-                    'message': 'Studio User updated successfully',
-                }
-            }
-            return Response(response)
-        else:
-            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def put(self, request, pk, format=None):
+#         SUser = self.get_SUser(pk)
+#         serializers = self.serializer_class(SUser, request.data)
+#         if serializers.is_valid():
+#             serializers.save()
+#             SUser_list = serializers.data
+#             response = {
+#                 'data': {
+#                     'StudioUser': dict(SUser_list),
+#                     'status': 'success',
+#                     'message': 'Studio User updated successfully',
+#                 }
+#             }
+#             return Response(response)
+#         else:
+#             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-    def delete(self, request, pk, format=None):
-        SUser = self.get_SUser(pk)
-        SUser.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#     def delete(self, request, pk, format=None):
+#         SUser = self.get_SUser(pk)
+#         SUser.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
 
-#Add and View Entries
-class StudioUserList(APIView):
-    serializer_class=StudioUserSerializer
-    def get(self, request, format=None):
-        SUser=StudioUser.objects.all()
-        serializers=self.serializer_class(SUser, many=True)
-        return Response(serializers.data)
+# #Add and View Entries
+# class StudioUserList(APIView):
+#     serializer_class=UserSerializer
+#     def get(self, request, format=None):
+#         SUser=UserSerializer.objects.all()
+#         serializers=self.serializer_class(SUser, many=True)
+#         return Response(serializers.data)
 
-    def post(self, request, format=None):
-        serializers=self.serializer_class(data=request.data)
-        if serializers.is_valid():
-            serializers.save()
-            SUser=serializers.data
-            response = {
-                'data': {
-                    'StudioUser': dict(SUser),
-                    'status': 'success',
-                    'message': 'Studio User created successfully',
-                }
-            }
-            return Response(response, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request, format=None):
+#         serializers=self.serializer_class(data=request.data)
+#         if serializers.is_valid():
+#             serializers.save()
+#             SUser=serializers.data
+#             response = {
+#                 'data': {
+#                     'StudioUser': dict(SUser),
+#                     'status': 'success',
+#                     'message': 'Studio User created successfully',
+#                 }
+#             }
+#             return Response(response, status=status.HTTP_201_CREATED)
+#         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self,request, format=None):
-        SUser=StudioUser.objects.all()
-        serializers=self.serializer_class(SUser, many=True)
-        return Response(serializers.data)
+#     def delete(self,request, format=None):
+#         SUser=UserSerializer.objects.all()
+#         serializers=self.serializer_class(SUser, many=True)
+#         return Response(serializers.data)
 
 
 #AdvertPost View
@@ -396,6 +398,9 @@ class IndividualAdvertPost(APIView):
 #Add and View Entries
 class AdvertPostList(APIView):
     serializer_class=AdvertPostSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['studio_id']
+    
     def get(self, request, format=None):
         advertpost=AdvertPost.objects.all()
         serializers=self.serializer_class(advertpost, many=True)

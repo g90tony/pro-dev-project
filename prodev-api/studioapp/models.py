@@ -58,8 +58,8 @@ class User(PermissionsMixin, AbstractBaseUser):
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
@@ -100,27 +100,6 @@ class User(PermissionsMixin, AbstractBaseUser):
 # custom user model handles all auth
 # thus omitting repeated code
 
-"""
-class StudioUser(models.Model):
-    username = models.CharField(max_length=30)
-    password = models.CharField(max_length=30)
-    email = models.EmailField()
-
-    @classmethod
-    def search_by_username(cls, search_term):
-        name = cls.objects.filter(username__icontains = search_term)
-        return name
-
-    def save_StudioUser(self):
-        self.save()
-
-    def delete_StudioUser(self):
-        self.delete()
-
-    def __str__(self):
-        return self.username
-"""
-
 
 # Posting adverts
 class AdvertPost(models.Model):
@@ -128,11 +107,16 @@ class AdvertPost(models.Model):
     advert_photos = CloudinaryField("image", default=None)
     caption = models.CharField(max_length=100)
 
+
     def save_post(self):
         self.save()
 
     def delete_post(self):
         self.delete()
+
+    # def search_by_studio(cls, search_term):
+    #     studio = cls.objects.filter(studio_id__icontains=search_term)
+    #     return studio
 
     def __str__(self):
         return self.studio_id.username
@@ -164,21 +148,6 @@ class StudioProfile(models.Model):
     rates = models.DecimalField(decimal_places=2, max_digits=8)
 
 
-"""
-    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-    def create_studio_profile(sender, instance, created, **kwargs):
-        if created:
-            StudioProfile.objects.create(studio_id=instance)
-
-    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-    def save_studio_profile(sender, instance, **kwargs):
-        instance.StudioProfile.save()
-
-    def __str__(self):
-        return self.studio_id.username
-
-"""
-
 
 class CreativeProfile(models.Model):
     creative_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -204,7 +173,7 @@ class CreativeProfile(models.Model):
 class Review(models.Model):
     message = models.CharField(max_length=100)
     creative_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True, blank=True, null=True)
 
     def save_review(self):
         self.save()

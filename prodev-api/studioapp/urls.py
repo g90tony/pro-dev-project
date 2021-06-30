@@ -19,11 +19,14 @@ urlpatterns = [
     #  http://127.0.0.1:8000/api/services/ --> to view all items
     #  http://127.0.0.1:8000/api/services/update/1/ --> to update specific item
     #  http://127.0.0.1:8000/api/services/delete/1/ --> to delete specific item
+
+    #No longer in use ==> using single user view
     # StudioUser
-    path("api/studio-user/", views.StudioUserList.as_view(), name="StudioUser"),
-    path("api/studio-user/<int:pk>/", views.IndividualStudioUser.as_view()),
-    path("api/studio-user/update/<int:pk>/", views.IndividualStudioUser.as_view()),
-    path("api/studio-user/delete/<int:pk>/", views.IndividualStudioUser.as_view()),
+    # path("api/studio-user/", views.StudioUserList.as_view(), name="StudioUser"),
+    # path("api/studio-user/<int:pk>/", views.IndividualStudioUser.as_view()),
+    # path("api/studio-user/update/<int:pk>/", views.IndividualStudioUser.as_view()),
+    # path("api/studio-user/delete/<int:pk>/", views.IndividualStudioUser.as_view()),
+
     # AdvertPost
     path("api/advert-post/", views.AdvertPostList.as_view(), name="AdvertPost"),
     path("api/advert-post/<int:pk>/", views.IndividualAdvertPost.as_view()),
