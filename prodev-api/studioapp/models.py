@@ -93,6 +93,7 @@ class User(PermissionsMixin, AbstractBaseUser):
         """
         dt = datetime.now() + timedelta(days=60)
 
+
         token = jwt.encode(
             {"id": self.pk, "exp": dt.utcfromtimestamp(dt.timestamp())}, settings.SECRET_KEY, algorithm="HS256"
         )
@@ -154,6 +155,7 @@ class Services(models.Model):
     def __str__(self):
         return self.name
 
+    
 
 class StudioProfile(models.Model):
     studio_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -165,6 +167,10 @@ class StudioProfile(models.Model):
     logo = CloudinaryField("images", default=None)
 
     rates = models.DecimalField(decimal_places=2, max_digits=8)
+
+    def search_by_service(cls, search_term):
+        servicessss = cls.objects.filter(service_provided__icontains=search_term)
+        return servicessss
 
 
 """
@@ -179,6 +185,9 @@ class StudioProfile(models.Model):
 
     def __str__(self):
         return self.studio_id.username
+
+'''
+    
 
 """
 
