@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReviewComponent } from './pages/review/review.component';
+import { ReviewComponent } from './pages/studio/review/review.component';
 
 import { ClientEditProfileComponent } from './pages/client/editprofile/clienteditprofile.component';
 import { ClientloginComponent } from './pages/client/login/clientlogin.component';
