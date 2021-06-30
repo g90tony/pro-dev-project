@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # Authentication routes
-    path("api/user/register", views.RegistrationAPIView.as_view(), name="user_register"),
-    path("api/user/login", views.LoginAPIView.as_view(), name="user_login"),
+    path("api/user/sign-up", views.RegistrationAPIView.as_view(), name="user_register"),
+    path("api/user/sign-in", views.LoginAPIView.as_view(), name="user_login"),
     # client profile
     path("api/client-user/profile/", views.CreativeProfile.as_view(), name="multi_profile_crud"),
     path("api/client-user/profile/<int:profile_id>", views.CreativeProfile.as_view(), name="profile_crud"),
@@ -26,6 +26,7 @@ urlpatterns = [
     path("api/studio-user/delete/<int:pk>/", views.IndividualStudioUser.as_view()),
     # AdvertPost
     path("api/advert-post/", views.AdvertPostList.as_view(), name="AdvertPost"),
+    path("api/advert-post/<studio_id>", views.AdvertPostList.as_view(), name="AdvertPost"),
     path("api/advert-post/<int:pk>/", views.IndividualAdvertPost.as_view()),
     path("api/advert-post/update/<int:pk>/", views.IndividualAdvertPost.as_view()),
     path("api/advert-post/delete/<int:pk>/", views.IndividualAdvertPost.as_view()),

@@ -113,8 +113,8 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        #'rest_framework_simplejwt.authentication.JWTAuthentication',
-        "prodev-api.studioapp.backends.JWTAuthentication"
+        # "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "studioapp.backends.JWTAuthentication"
     ],
 }
 
